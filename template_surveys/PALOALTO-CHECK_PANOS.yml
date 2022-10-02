@@ -1,0 +1,51 @@
+---
+name: PALOALTO-CHECK_PANOS-Survey
+description: PALOALTO-CHECK_PANOS-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Host"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "Rule Name"
+    question_description: "Rule Name"
+    variable: panos_rule_name
+    required: true
+  
+  - type: text
+    question_name: "Source Zone"
+    question_description: "Source Zone"
+    variable: panos_source_zone
+    required: true
+  
+  - type: text
+    question_name: "Destination Zone"
+    question_description: "Destination Zone"
+    variable: panos_destion_zone
+    required: true
+  
+  - type: text
+    question_name: "Source IP"
+    question_description: "Source IP"
+    variable: panos_source_ip
+    required: true
+  
+  - type: text
+    question_name: "Destination IP"
+    question_description: "Destination IP"
+    variable: panos_destination_ip
+    required: true
+  
+  - type: text
+    question_name: "Protocol"
+    question_description: "Protocol"
+    variable: panos_protocol
+    required: true
+  
+  - type: text
+    question_name: "Destination Port"
+    question_description: "Destination Port"
+    variable: panos_destination_port
+    required: true

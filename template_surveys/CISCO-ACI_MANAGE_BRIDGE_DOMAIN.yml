@@ -1,0 +1,70 @@
+---
+name: CISCO-ACI_MANAGE_BRIDGE_DOMAIN-Survey
+description: CISCO-ACI_MANAGE_BRIDGE_DOMAIN-Survey
+spec:
+  - type: text
+    question_name: Tenant
+    question_description: "The name of the Tenant the VRF should belong to."
+    variable: aci_tenant
+    required: true
+  
+  - type: text
+    question_name: VRF
+    question_description: "The name of the VRF"
+    variable: aci_vrf
+    required: true
+  
+  - type: text
+    question_name: Bridge Domain
+    question_description: "The name of the Bridge Domain"
+    variable: aci_bridge_domain
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Routing"
+    question_description: "Enable/Disable Routing. Determines if IP forwarding should be allowed"
+    variable: enable_routing
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+  
+  - type: multiplechoice
+    question_name: "ARP Flooding"
+    question_description: "Determines if Bridge Domain should flood ARP traffic"
+    variable: arp_flooding
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+  
+  - type: text
+    question_name: "Bridge Gateway"
+    question_description: "The IPv4 or IPv6 gateway address for the subnet. Ex: 192.168.0.1"
+    variable: bd_gateway
+    required: false
+  
+  - type: integer
+    question_name: "Bridge Subnet Mask"
+    question_description: "The subnet mask for the subnet. This number associated with CIDR notation."
+    variable: bd_subnet_mask
+    required: false
+  
+  - type: multiselect
+    question_name: "Scope"
+    question_description: "Determines the scope of the subnet. The 'private' option only allows communication with the host in the same VRF. The 'public' option allows the subnet to be advertised outside of the ACI fabric, and allowscommunication with the hosts in other VRF. The 'shared' option limits communication to hosts in either the same VRF of the shared VRF."
+    variable: scope
+    required: true
+    choices:
+      - "shared"
+      - "public"
+      - "private"
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Select 'present' or 'absent' for adding or removing."
+    variable: state
+    required: true
+    choices:
+      - "present"
+      - "absent"

@@ -1,0 +1,52 @@
+---
+name: CISCO-NXOS_MANAGE_STATIC_ROUTE-Survey
+description: CISCO-NXOS_MANAGE_STATIC_ROUTE-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "VRF Name"
+    question_description: "The VRF to which the static route(s) belong"
+    variable: nxos_vrf_name
+    required: true
+  
+  - type: multiplechoice
+    question_name: "IP Version"
+    question_description: "Specifies the top level address family indicator"
+    variable: nxos_ip_version
+    required: true
+    choices:
+      - "ipv4"
+      - "ipv6"
+    default: "ipv4"
+  
+  - type: text
+    question_name: "Destination Subnet"
+    question_description: "Destination prefix of static route. The address format is <ipv4/v6 address>/<mask>"
+    variable: nxos_destination_subnet
+    required: true
+  
+  - type: text
+    question_name: "Gateway IP"
+    question_description: "IP address of the next hop router. Ex: 192.0.2.22"
+    variable: nxos_gateway_ip
+    required: true
+  
+  - type: text
+    question_name: "L3 Interface"
+    question_description: "L3 Interface"
+    variable: nxos_l3_interface
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: nxos_state
+    required: true
+    choices:
+      - "merged"
+      - "deleted"

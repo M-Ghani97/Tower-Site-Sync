@@ -1,0 +1,42 @@
+---
+name: CISCO-ACI_ADD_EPG_TO_BRIDGE_DOMAIN-Survey
+description: CISCO-ACI_ADD_EPG_TO_BRIDGE_DOMAIN-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "L3 Interface"
+    question_description: "L3 Interface Name"
+    variable: nxos_l3_interface
+    required: true
+  
+  - type: text
+    question_name: "VLAN ID"
+    question_description: "VLAN ID"
+    variable: nxos_vlan_id
+    required: false
+  
+  - type: text
+    question_name: "IPv4 Address"
+    question_description: "192.168.1.1/24"
+    variable: nxos_l3_ipv4_address 
+    required: false
+  
+  - type: text
+    question_name: "IPv6 Address"
+    question_description: "fd5d:12c9:2201:2::1/64"
+    variable: nxos_l3_ipv6_address
+    required: false
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: nxos_state
+    required: true
+    choices:
+      - "merged"
+      - "deleted"

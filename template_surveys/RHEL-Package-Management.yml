@@ -1,0 +1,24 @@
+---
+name: RHEL-Package-Management-Survey
+description: RHEL-Package-Management-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Host Pattern"
+    variable: target_hosts
+    required: true
+  
+  - type: textarea
+    question_name: "Package Name(s)"
+    question_description: "Package Name (one per line)"
+    variable: packages
+    required: true
+  
+  - type: multiplechoice
+    question_name: Action
+    question_description: Action
+    variable: action
+    required: true
+    choices:
+      - Install
+      - Update

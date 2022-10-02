@@ -1,0 +1,59 @@
+---
+name: RHEL-User-Group-Management-Survey
+description: RHEL-User-Group-Management-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Host Pattern"
+    variable: target_hosts
+    required: true
+  
+  - type: textarea
+    question_name: "Groups"
+    question_description: "RHEL Groups (one per line)"
+    variable: os_groups
+    required: true
+  
+  - type: textarea
+    question_name: "Users"
+    question_description: "RHEL Users (one per line)"
+    variable: users
+    required: true
+  
+  - type: password
+    question_name: "Password"
+    question_description: "Users Password"
+    variable: password
+    min: 8
+    man: 32
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Home Directory"
+    question_description: "Create User's Home Directory"
+    variable: create_home_dir
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+    default: "Yes"
+  
+  - type: multiplechoice
+    question_name: "Overwrite"
+    question_description: "Overwrite Group Configuration"
+    variable: overwrite
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+    default: "No"
+  
+  - type: multiplechoice
+    question_name: "Privileged User"
+    question_description: "Provide Sudo Privileges to Users"
+    variable: privileged
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+    default: "No"

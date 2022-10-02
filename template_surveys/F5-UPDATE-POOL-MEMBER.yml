@@ -1,0 +1,42 @@
+---
+name: F5-UPDATE-POOL-MEMBER-Survey
+description: F5-UPDATE-POOL-MEMBER-Survey
+spec:
+  - type: text
+    question_name: "F5 Device Hostname/IP"
+    question_description: "F5 Device Hostname/IP"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "Pool Name"
+    question_description: "Pool Name"
+    variable: pool_name
+    required: true
+  
+  - type: text
+    question_name: "Member Name"
+    question_description: "Member Name"
+    variable: member_name
+    required: true
+  
+  - type: text
+    question_name: "Member IP"
+    question_description: "Member IP"
+    variable: member_host
+    required: true
+  
+  - type: text
+    question_name: "Memeber Port"
+    question_description: "Memeber Port"
+    variable: member_port
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: member_state
+    required: true
+    choices:
+      - enable
+      - disable

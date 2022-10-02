@@ -1,0 +1,38 @@
+---
+name: VMWARE-TAG-VM-Survey
+description: VMWARE-TAG-VM-Survey
+spec:
+  - type: multiplechoice
+    question_name: "vCenter Hostname"
+    question_description: "vCenter Hostname"
+    variable: vcenter_hostname
+    required: true
+    choices:
+      - "GCRUHPRODVC01.services.gws.sa"
+      - "GCRUHMGMTVC01.services.gws.sa"
+      - "JED-Z1-POD1-VC-01.services.gws.sa"
+      - "JED-Z1-MM-VC.services.gws.sa"
+      - "RUH-Z2-MM-VC.services.gws.sa"
+      - "RUH-Z2-POD1-VC-01.services.gws.sa"
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: state
+    required: true
+    choices:
+      - "add"
+      - "remove"
+      - "set"
+  
+  - type: textarea
+    question_name: "VM Names"
+    question_description: "VM Names (one per line)"
+    variable: vm_names
+    required: true
+  
+  - type: textarea
+    question_name: "Tags"
+    question_description: "Tags"
+    variable: vm_tags
+    required: true

@@ -1,0 +1,21 @@
+---
+name: CISCO-NXOS-CREATE_VRF-Survey
+description: CISCO-NXOS-CREATE_VRF-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "VRF Name"
+    question_description: "VRF Name"
+    variable: nxos_vrf_name
+    required: true
+  
+  - type: text
+    question_name: "VRF Description"
+    question_description: "VRF Description"
+    variable: nxos_vrf_description
+    required: true

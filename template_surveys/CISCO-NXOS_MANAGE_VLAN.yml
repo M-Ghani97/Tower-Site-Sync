@@ -1,0 +1,68 @@
+---
+name: CISCO-NXOS_MANAGE_VLAN-Survey
+description: CISCO-NXOS_MANAGE_VLAN-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true
+  
+#  - type: text
+#    question_name: "L3 Interface"
+#    question_description: "L3 Interface Name"
+#    variable: nxos_l3_interface
+#    required: true
+  
+  - type: integer
+    question_name: "VLAN ID"
+    question_description: "VLAN ID"
+    variable: nxos_vlan_id
+    required: true
+  
+  - type: text
+    question_name: "VLAN Name"
+    question_description: "Name of VLAN"
+    variable: nxos_vlan_name
+    required: false
+  
+  - type: multiplechoice
+    question_name: "Enable"
+    question_description: "Administrative Status of VLAN"
+    variable: nxos_vlan_enabled
+    required: true
+    choices:
+      - "Yes"
+      - "No"
+    default: "Yes"
+  
+  - type: multiplechoice
+    question_name: "State"
+    question_description: "Operational Status of VLAN"
+    variable: nxos_vlan_state
+    required: true
+    choices:
+      - "active"
+      - "suspend"
+    default: "active"
+
+#  - type: text
+#    question_name: "IPv4 Address"
+#    question_description: "192.168.1.1/24"
+#    variable: nxos_l3_ipv4_address 
+#    required: true
+#  
+#  - type: text
+#    question_name: "IPv6 Address"
+#    question_description: "fd5d:12c9:2201:2::1/64"
+#    variable: nxos_l3_ipv6_address
+#    required: true
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: nxos_state
+    required: true
+    choices:
+      - "merged"
+      - "deleted"

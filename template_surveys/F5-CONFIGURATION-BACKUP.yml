@@ -1,0 +1,9 @@
+---
+name: F5-CONFIGURATION-BACKUP-Survey
+description: F5-CONFIGURATION-BACKUP-Survey
+spec:
+  - type: text
+    question_name: "F5 Device Hostname/IP"
+    question_description: "F5 Device Hostname/IP"
+    variable: target_hosts
+    required: true

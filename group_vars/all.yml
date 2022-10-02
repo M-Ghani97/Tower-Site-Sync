@@ -1,0 +1,1405 @@
+---
+################################### PROJECTS ################################################
+controller_projects:
+# - name: RHEL Use cases
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/ansible_rhel.git
+#   credential: rhel_pat_creds
+- name: VMWARE-UseCases
+  organization: Default
+  scm_branch: main
+  scm_clean: 'yes'
+  scm_delete_on_update: 'no'
+  scm_type: git
+  scm_update_on_launch: 'yes'
+  scm_url: https://10.57.102.13/ialwashmi/ansible_vmware_snow.git
+  credential: vmware_pat_creds
+# - name: F5-UseCases
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/ansible_f5.git
+#   credential: f5_pat_creds
+# - name: CISCO-NXOS-UseCases
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/ansible_cisco.git
+#   credential: cisco_pat_creds
+# - name: "Demo Project GitLab"
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/demo.git
+#   credential: demo_pat_creds
+# - name: PALOALTO-UseCases
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/ansible_paloalto.git
+#   credential: panos_pat_creds
+# - name: NETAPP-UseCases
+#   organization: Default
+#   scm_branch: main
+#   scm_clean: 'yes'
+#   scm_delete_on_update: 'no'
+#   scm_type: git
+#   scm_update_on_launch: 'yes'
+#   scm_url: https://10.57.102.13/ialwashmi/ansible_netapp.git
+#   credential: netapp_pat_creds
+
+################################### JOB TEMPLATES ################################################
+controller_templates:
+# - name: RHEL-Package-Management
+#   description: RHEL-Package-Management
+#   organization: Default
+#   job_type: run
+#   inventory: rhel-linux-inv
+#   project: RHEL Use cases
+#   playbook: playbook.yml
+#   become_enabled: true
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_rhel_supported:0.0.1
+#   credentials:
+#   - RHEL-TEST
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/RHEL-Package-Management.yml') | from_yaml }}"
+#   extra_vars:
+#     task: package_management
+# - name: RHEL-PING
+#   description: RHEL-PING
+#   organization: Default
+#   job_type: run
+#   inventory: rhel-linux-inv
+#   project: RHEL Use cases
+#   playbook: ping.yaml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_rhel_supported:0.0.1
+#   credentials:
+#   - RHEL-TEST
+#   survey: {}
+# - name: RHEL-Service-Management
+#   description: RHEL-Service-Management
+#   organization: Default
+#   job_type: run
+#   inventory: rhel-linux-inv
+#   project: RHEL Use cases
+#   playbook: playbook.yml
+#   become_enabled: true
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_rhel_supported:0.0.1
+#   credentials:
+#   - RHEL-TEST
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/RHEL-Service-Management.yml') | from_yaml }}"
+#   extra_vars:
+#     task: service_management
+# - name: RHEL-User-Group-Management
+#   description: RHEL-User-Group-Management
+#   organization: Default
+#   job_type: run
+#   inventory: rhel-linux-inv
+#   project: RHEL Use cases
+#   playbook: playbook.yml
+#   become_enabled: true
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_rhel_supported:0.0.1
+#   credentials:
+#   - RHEL-TEST
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/RHEL-User-Group-Management.yml') | from_yaml }}"
+#   extra_vars:
+#     task: user_group_mgmt
+# - name: RHEL-SYSTEM-HARDENING
+#   description: RHEL-SYSTEM-HARDENING
+#   organization: Default
+#   job_type: run
+#   inventory: VMWARE-Management-JED
+#   project: RHEL Use cases
+#   playbook: playbook.yml
+#   become_enabled: true
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_rhel_supported:0.0.1
+#   credentials:
+#   - RHEL-TEST
+#   extra_vars:
+#     task: system_hardening
+# #---------------------------------- F5 -------------------------------#
+# - name: F5-ADD-POOL-MEMBER
+#   description: F5-ADD-POOL-MEMBER
+#   organization: Default
+#   job_type: run
+#   inventory: F5-INVENTORY
+#   project: F5-UseCases
+#   playbook: playbook.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_f5_snow_supported:0.0.1
+#   credentials:
+#   - F5-Creds
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/F5-ADD-POOL-MEMBER.yml') | from_yaml }}"
+#   extra_vars:
+#     task: add_pool_member
+# - name: F5-CONFIGURATION-BACKUP
+#   description: F5-CONFIGURATION-BACKUP
+#   organization: Default
+#   job_type: run
+#   inventory: F5-INVENTORY
+#   project: F5-UseCases
+#   playbook: playbook.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_f5_snow_supported:0.0.1
+#   credentials:
+#   - F5-Creds
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/F5-CONFIGURATION-BACKUP.yml') | from_yaml }}"
+#   extra_vars:
+#     task: backup
+# - name: F5-DEVICE-INFO
+#   description: F5-DEVICE-INFO
+#   organization: Default
+#   job_type: run
+#   inventory: F5-INVENTORY
+#   project: F5-UseCases
+#   playbook: playbook.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_f5_snow_supported:0.0.1
+#   credentials:
+#   - F5-Creds
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/F5-DEVICE-INFO.yml') | from_yaml }}"
+#   extra_vars:
+#     task: get_info
+# - name: F5-REMOVE-POOL-MEMBER
+#   description: F5-REMOVE-POOL-MEMBER
+#   organization: Default
+#   job_type: run
+#   inventory: F5-INVENTORY
+#   project: F5-UseCases
+#   playbook: playbook.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_f5_snow_supported:0.0.1
+#   credentials:
+#   - F5-Creds
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/F5-REMOVE-POOL-MEMBER.yml') | from_yaml }}"
+#   extra_vars:
+#     task: remove_pool_member
+# - name: F5-UPDATE-POOL-MEMBER
+#   description: F5-UPDATE-POOL-MEMBER
+#   organization: Default
+#   job_type: run
+#   inventory: F5-INVENTORY
+#   project: F5-UseCases
+#   playbook: playbook.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_f5_snow_supported:0.0.1
+#   credentials:
+#   - F5-Creds
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/F5-UPDATE-POOL-MEMBER.yml') | from_yaml }}"
+#   extra_vars:
+#     task: update_pool_member
+#---------------------------------- VMWARE -------------------------------#
+- name: VMWARE-VM-PROVISION
+  description: VMWARE-VM-PROVISION
+  organization: Default
+  job_type: run
+  inventory: VMWARE
+  project: VMWARE-UseCases
+  playbook: playbooks.yml
+  become_enabled: false
+  verbosity: 3
+  execution_environment: '/var/lib/awx/venv/vmware/'
+  credentials:
+  - "VMWARE"
+  survey_enabled: true
+  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-VM-PROVISION.yml') | from_yaml }}"
+  extra_vars:
+    task: provision_vm
+- name: VMWARE-TAG-VM
+  description: VMWARE-TAG-VM
+  organization: Default
+  job_type: run
+  inventory: VMWARE
+  project: VMWARE-UseCases
+  playbook: playbooks.yml
+  become_enabled: false
+  verbosity: 3
+  execution_environment: '/var/lib/awx/venv/vmware/'
+  credentials:
+  - "VMWARE"
+  survey_enabled: true
+  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM.yml') | from_yaml }}"
+  extra_vars:
+    task: tag_vm
+# #---------------------------------- CISCO -------------------------------#
+# - name: CISCO-NXOS-Configuration-Backup
+#   description: CISCO-NXOS-Configuration-Backup
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.6_configuration_backup.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS-Configuration-Backup.yml') | from_yaml }}"
+# - name: CISCO-NXOS-ADD_L3_INTERFACE
+#   description: CISCO-NXOS-ADD_L3_INTERFACE
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.1_add_l3_interface.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS-ADD_L3_INTERFACE.yml') | from_yaml }}"
+# - name: CISCO-NXOS-CREATE_VRF
+#   description: CISCO-NXOS-CREATE_VRF
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.2_create_vrf.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS-CREATE_VRF.yml') | from_yaml }}"
+# - name: CISCO-NXOS_ADD_INTERFACE_TO_VRF
+#   description: CISCO-NXOS_ADD_INTERFACE_TO_VRF
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.3_add_interfaces_to_vrf.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS_ADD_INTERFACE_TO_VRF.yml') | from_yaml }}"
+# - name: CISCO-NXOS_MANAGE_VLAN
+#   description: CISCO-NXOS_MANAGE_VLAN
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.4_manage_vlan.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS_MANAGE_VLAN.yml') | from_yaml }}"
+# - name: CISCO-NXOS_MANAGE_STATIC_ROUTE
+#   description: CISCO-NXOS_MANAGE_STATIC_ROUTE
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_nxos_10.15.6.5_manage_static_route.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-NXOS_MANAGE_STATIC_ROUTE.yml') | from_yaml }}"
+# - name: CISCO-ACI-MANAGE_VRF
+#   description: CISCO-ACI_MANAGE_VRF
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_aci_10.15.7.1_manage_vrf.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-ACI-MANAGE_VRF.yml') | from_yaml }}"
+# - name: CISCO-ACI_MANAGE_BRIDGE_DOMAIN
+#   description: CISCO-ACI_MANAGE_BRIDGE_DOMAIN
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_aci_10.15.7.2_manage_bridge_domain.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/CISCO-ACI_MANAGE_BRIDGE_DOMAIN.yml') | from_yaml }}"
+# - name: CISCO-ACI_MANAGE_EPG
+#   description: CISCO-ACI_MANAGE_EPG
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_aci_10.15.7.3_manage_epg.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+# #  survey_enabled: true
+# #  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM.yml') | from_yaml }}"
+# - name: CISCO-ACI_ADD_EPG_TO_BRIDGE_DOMAIN
+#   description: CISCO-ACI_ADD_EPG_TO_BRIDGE_DOMAIN
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_aci_10.15.7.4_add_epg_to_bridge_domain.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+# #  survey_enabled: true
+# #  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM.yml') | from_yaml }}"
+# - name: CISCO-ACI_MANAGE_L3OUT
+#   description: CISCO-ACI_MANAGE_L3OUT
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: CISCO-NXOS-UseCases
+#   playbook: 00_aci_10.15.7.5_manage_l3out.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_cisco_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+# #  survey_enabled: true
+# #  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM.yml') | from_yaml }}"
+# #---------------------------------- PALOALTO -------------------------------#
+# - name: PALOALTO-CREATE_RULE
+#   description: PALOALTO-CREATE_RULE
+#   organization: Default
+#   job_type: run
+#   inventory: PALOALTO-INVENTORY
+#   project: PALOALTO-UseCases
+#   playbook: 00_panos_10.15.8.1_create_rule.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_pan_os_supported:0.0.1
+#   credentials:
+#   - "PANOS-CREDS"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/PALOALTO-CHECK_PANOS.yml') | from_yaml }}"
+# - name: PALOALTO-CHECK_PANOS
+#   description: PALOALTO-CHECK_PANOS
+#   organization: Default
+#   job_type: run
+#   inventory: PALOALTO-INVENTORY
+#   project: PALOALTO-UseCases
+#   playbook: 00_panos_check.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_pan_os_supported:0.0.1
+#   credentials:
+#   - "PANOS-CREDS"
+#   survey: {}
+# #---------------------------------- NETAPP -------------------------------#
+# - name: NETAPP-GET_INFO
+#   description: NETAPP-GET_INFO
+#   organization: Default
+#   job_type: run
+#   inventory: NETAPP-INVENTORY
+#   project: NETAPP-UseCases
+#   playbook: netapp_get_info.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_netapp_vmware_nxos_supported:0.0.1
+#   credentials:
+#   - "NETAPP-Creds"
+#   extra_vars:
+#     netapp_hostname: "10.100.4.10"
+#     netapp_username: "services\\SRV0481"
+#     info_subset: ['vserver_info']
+#   survey: {}
+# - name: NETAPP_SAN_GET_INFO
+#   description: NETAPP_SAN_GET_INFO
+#   organization: Default
+#   job_type: run
+#   inventory: CISCO-NXOS-INVENTORY
+#   project: NETAPP-UseCases
+#   playbook: san_get_info.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_netapp_vmware_nxos_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   extra_vars:
+#     ansible_network_os: cisco.nxos.nxos
+#     ansible_user: ansible
+#     ansible_connection: ansible.netcommon.network_cli
+#     target_hosts: 10.100.4.15
+#   survey: {}
+# - name: NETAPP-HOST_LUN_MAPPING_NXOS
+#   description: NETAPP-HOST_LUN_MAPPING_NXOS
+#   organization: Default
+#   job_type: run
+#   inventory: NETAPP-INVENTORY
+#   project: NETAPP-UseCases
+#   playbook: 00_netapp_10.15.9.2_host_lun_mapping_nxos.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_netapp_vmware_nxos_supported:0.0.1
+#   credentials:
+#   - "CISCO-NXOS-Creds"
+#   extra_vars:
+#     ansible_network_os: cisco.nxos.nxos
+#     ansible_user: ansible
+#     ansible_connection: ansible.netcommon.network_cli
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/NETAPP-HOST_LUN_MAPPING_NXOS.yml') | from_yaml }}"
+# - name: NETAPP-HOST_LUN_MAPPING_NETAPP
+#   description: NETAPP-HOST_LUN_MAPPING_NETAPP
+#   organization: Default
+#   job_type: run
+#   inventory: NETAPP-INVENTORY
+#   project: NETAPP-UseCases
+#   playbook: 00_netapp_10.15.9.2_host_lun_mapping_netapp.yml
+#   become_enabled: false
+#   instance_groups:
+#     - ruh
+#     - jed
+#   verbosity: 3
+#   execution_environment: autohub-ee_netapp_vmware_nxos_supported:0.0.1
+#   credentials:
+#   - "NETAPP-Creds"
+#   extra_vars:
+#     netapp_username: "services\\SRV0481"
+#   survey_enabled: true
+#   survey_spec: "{{ lookup('template', 'template_surveys/NETAPP-HOST_LUN_MAPPING_NETAPP.yml') | from_yaml }}"
+
+
+################################### INVENTORIES ################################################
+controller_inventories:
+  # - name: rhel-linux-inv
+  #   organization: Default
+  #   instance_groups:
+  #     - ruh
+  #     - jed
+  # - name: CISCO-NXOS-INVENTORY
+  #   organization: Default
+  #   instance_groups:
+  #     - ruh
+  #     - jed
+  # - name: F5-INVENTORY
+  #   organization: Default
+  #   instance_groups:
+  #     - ruh
+  #     - jed
+  - name: VMWARE
+    organization: Default
+  # - name: PALOALTO-INVENTORY
+  #   organization: Default
+  #   instance_groups:
+  #     - ruh
+  #     - jed
+  # - name: NETAPP-INVENTORY
+  #   organization: Default
+  #   instance_groups:
+  #     - ruh
+  #     - jed
+
+
+################################### HOSTS ################################################
+# controller_hosts:
+#   - name: hpedashboardmid
+#     inventory: rhel-linux-inv
+#     variables:
+#       ansible_host: 10.6.1.4
+#       ansible_user: ansible
+#       ansible_connection: ssh
+#   - name: 10.18.58.222
+#     description: C45-Cloud2-VSS - Standby
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_user: Ansible-ACI
+#       ansible_password: "Ans-Aci"
+# #---------------------------------- CISCO -------------------------------#
+# #------------------------------- Riyadh Core routers -----------------------------#
+#   - name: R1006_Cloud-2-COM-RHC13 
+#     inventory: CISCO-NXOS-INVENTORY 
+#     variables:
+#       ansible_host: 10.18.58.202
+#   - name: R1006_Cloud-2-ADM-REC59 
+#     inventory: CISCO-NXOS-INVENTORY 
+#     variables:
+#       ansible_host: 10.18.58.203
+#   - name: R1001_Cloud2-CB-R13-RUH_JED-VPLS 
+#     inventory: CISCO-NXOS-INVENTORY 
+#     variables:
+#       ansible_host: 10.18.58.204
+#   - name: R1001_Cloud2-AB-R65-RUH_JED-VPLS 
+#     inventory: CISCO-NXOS-INVENTORY 
+#     variables:
+#       ansible_host: 10.18.58.205
+#   - name: GCloud2-Juniper-RH-Cab13-CB 
+#     inventory: CISCO-NXOS-INVENTORY 
+#     variables:
+#       ansible_host: 10.18.58.209
+# #------------------------------- Riyadh Cisco Switches -----------------------------#
+#   - name: C45-Cloud2-VSS 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.222
+#   - name: C45-Cloud2-VSS 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.223
+#   - name: C95-AGG-SW1 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.224
+#   - name: C95-AGG-SW1 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.225
+#   - name: C29-CMP-Mgmt1 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.249
+#   - name: C29-CMP-Mgmt2 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.251
+#   - name: C36-CMP-Mgmt3 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.247
+#   - name: C29-ADM-Mgmt1 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.252
+#   - name: C29-ADM-Mgmt2 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.250
+#   - name: N9K_CLOUD_SP_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.102
+#   - name: N9K_CLOUD_SP_AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.103
+#   - name: N9K_CLOUD_L1_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.111
+#   - name: N9K_CLOUD_L2_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.112
+#   - name: N9K_CLOUD_L3_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.113
+#   - name: N9K_CLOUD_L4_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.114
+#   - name: N9K_CLOUD_L5_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.115
+#   - name: N9K_CLOUD_L6_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.116
+#   - name: N9K_CLOUD_L7_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.117
+#   - name: N9K_CLOUD_L8_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.118
+#   - name: N9K_CLOUD_L9_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.119
+#   - name: N9K_CLOUD_L10_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.120
+#   - name: C29-RH-C1-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.181
+#   - name: N9K-CLOUD_L3_AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.123
+#   - name: N9K-CLOUD_L4_AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.124
+#   - name: N9K_CLOUD_IGW1_CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.131
+#   - name: C29-Cloud2-RH-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.182
+#   - name: N9K_CLOUD_IGW1_AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.141
+#   - name: C29-Cloud2-RH-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.151
+#   - name: C29-Cloud2-RH-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.152
+#   - name: C29-ILO-3-RI-C1-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.153
+#   - name: C38-ILO-4-RI-C1-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.154
+#   - name: C38-ILO-5-RI-C14-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.155
+#   - name: C93-ILO-6-RN-C1-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.156
+#   - name: C93-ILO-7-RN-C11-CB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.157
+#   - name: C29-ILO-2-RE-C59-AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.129
+#   - name: C29-ILO-1-RE-C66-AB 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.18.58.130
+# #------------------------------- New Jeddah Core routers -----------------------------#
+#   - name: JED-Z1-RTR-IGW-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#     ansible_hosts: 10.100.0.33
+#   - name: JED-Z1-RTR-IGW-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables: 
+#       ansible_hosts: 10.100.0.34
+#   - name: JED-Z1-ASBR-STC-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.230
+#   - name: JED-Z1-CORE-PE-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.232
+#   - name: JED-Z1-CORE-PE-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.233
+#   - name: JED-Z1-CORE-RR-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.234
+#   - name: JED-Z1-CORE-RR-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.235
+#   - name: JED-Z1-ASBR-STC-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.236
+#   - name: JED-Z1-ASBR-MOB-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.237
+#   - name: JED-Z1-ASBR-MOB-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.238
+#   - name: JED-Z1-ASBR-MFN-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.242
+#   - name: JED-Z1-ASBR-MFN-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.243
+#   - name: JED-Z1-L2-MPLS-ASR-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.25
+#   - name: JED-Z1-L2-MPLS-ASR-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_hosts: 10.100.0.64
+# #------------------------------- New Jeddah Switches -----------------------------#
+#   - name: JED-Z1-SPINE-DC-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.7
+#   - name: JED-Z1-SPINE-DC-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.8
+#   - name: JED-Z1-LEAF-IGW-Br-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.9
+#   - name: JED-Z1-LEAF-IGW-Br-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.10
+#   - name: JED-Z1-LEAF-NonWL-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.11
+#   - name: JED-Z1-LEAF-NonWL-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.12
+#   - name: JED-Z1-LEAF-NonWL-003 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.13
+#   - name: JED-Z1-LEAF-NonWL-004 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.14
+#   - name: JED-Z1-LEAF-MGMT-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.15
+#   - name: JED-Z1-LEAF-MGMT-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.16
+#   - name: JED-Z1-LEAF-WL-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.17
+#   - name: JED-Z1-LEAF-WL-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.18
+#   - name: JED-Z1-LEAF-WL-003 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.19
+#   - name: JED-Z1-LEAF-WL-004 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.20
+#   - name: JED-Z1-LEAF-SRV-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.21
+#   - name: JED-Z1-LEAF-SRV-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.22
+#   - name: JED-Z1-LEAF-MPLS-Br-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.23
+#   - name: JED-Z1-LEAF-MPLS-Br-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.24
+#   - name: JED-Z1-OUTSW-IGW-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.31
+#   - name: JED-Z1-OUTSW-IGW-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.32
+#   - name: JED-Z1-SW-OOB-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.103
+#   - name: JED-Z1-SW-OOB-002 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.104
+#   - name: JED-Z1-SW-OOB-003 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.105
+#   - name: JED-Z1-SW-OOB-004 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.106
+#   - name: JED-Z1-SW-OOB-005 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.107
+#   - name: JED-Z1-SW-OOB-006 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.108
+#   - name: JED-Z1-SW-OOB-007 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.109
+#   - name: JED-Z1-SW-OOB-008 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.110
+#   - name: JED-Z1-SW-OOB-009 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.111
+#   - name: JED-Z1-AGG-OOB-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.112
+#   - name: JED-Z1-AGG-OOB-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.113
+#   - name: JED-Z1-CORE-SW-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.240
+#   - name: JED-Z1-CORE-SW-001 
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.100.0.241
+# #------------------------------- Old Jeddah Cisco Router -----------------------------#
+#   - name: RKZ-RTR01
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.9
+#   - name: RKZ-RTR02
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.10
+# #------------------------------- Old Jeddah Switches -----------------------------#
+#   - name: RKZ-ASW01
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.1
+#   - name: RKZ-ASW02
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.2
+#   - name: RKZ-ASW03
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.3
+#   - name: RKZ-ASW04
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.4
+#   - name: RKZ-ASW05
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.5
+#   - name: RKZ-ASW06
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.6
+#   - name: RKZ-ASW07
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.7
+#   - name: RKZ-ASW08
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.8
+#   - name: RKZ-CSW01
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.254
+#   - name: RKZ-CSW02
+#     inventory: CISCO-NXOS-INVENTORY
+#     variables:
+#       ansible_host: 10.81.19.252
+
+# #---------------------------------- F5 -------------------------------#
+#   - name: 10.100.0.200
+#     inventory: F5-INVENTORY
+#   - name: 10.100.0.201
+#     inventory: F5-INVENTORY
+#   - name: 10.100.2.1
+#     inventory: F5-INVENTORY
+#   - name: 10.18.58.208
+#     inventory: F5-INVENTORY
+#   - name: 10.18.58.42
+#     inventory: F5-INVENTORY
+#   - name: 10.18.58.43
+#     inventory: F5-INVENTORY
+#   - name: 10.18.58.44
+#     inventory: F5-INVENTORY
+#   - name: 10.18.58.45
+#     inventory: F5-INVENTORY
+#   - name: 10.57.109.10
+#     inventory: F5-INVENTORY
+#   - name: 10.57.109.11
+#     inventory: F5-INVENTORY
+#   - name: 10.57.109.12
+#     inventory: F5-INVENTORY
+#   - name: 10.58.151.10
+#     inventory: F5-INVENTORY
+#   - name: 10.58.151.11
+#     inventory: F5-INVENTORY
+#   - name: 10.99.0.41
+#     inventory: F5-INVENTORY
+#   - name: 10.99.0.43
+#     inventory: F5-INVENTORY
+#   - name: 172.22.15.2
+#     inventory: F5-INVENTORY
+#   - name: 172.22.5.230
+#     inventory: F5-INVENTORY
+#   - name: 172.22.5.231
+#     inventory: F5-INVENTORY
+# #---------------------------------- PALOALTO -------------------------------#
+#   - name: JED-Z1-FW-IGW-002
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.100.0.36
+#   - name: Z1-Jed-IS-PA-Services-DMZ02
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 192.168.251.11
+#   - name: Z1-Jed-IS-PA-Services-DC01
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 192.168.250.20
+#   - name: JED-Z1-PAN-IGW-001
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.100.0.100
+#   - name: JED-Z1-FW-IGW-001
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.100.0.35
+#   - name: Z1-Jed-IS-PA-Services-DMZ02
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 192.168.251.11
+#   - name: Z1-Jed-IS-PA-Services-DC02
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 192.168.251.21
+#   - name: NIC-CMP-CLD2-PAN-FW01
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.18.58.2
+#   - name: DEEM-DC-DMZ-PA-01
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 172.22.5.10
+#   - name: Deem-DC-FW1
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 172.22.5.20
+#   - name: NIC-CMP-CLD2-PAL-PAN01
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.18.58.1
+#   - name: NIC-ADM-CLD2-PAN-FW02
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 10.18.58.3
+#   - name: DEEM-DC-DMZ-PA-02
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 172.22.5.11
+#   - name: Deem-DC-FW2
+#     inventory: PALOALTO-INVENTORY
+#     variables:
+#       ip_address: 172.22.5.21
+# #------------------------------- NetApp -----------------------------#
+#   - name: NETAPP-INVENTORY
+#     inventory: NETAPP-INVENTORY
+
+
+################################### INVENTORY SOURCES ################################################
+controller_inventory_sources:
+  - name: VMWARE
+    source: vmware
+    inventory: VMWARE
+    credential: VMWARE
+    description: VMWARE
+    execution_environment: '/var/lib/awx/venv/vmware'
+    overwrite: true
+    update_on_launch: true
+    update_cache_timeout: 0
+    source_vars:
+      plugin: community.vmware.vmware_vm_inventory
+      hostnames:
+        - 'config.name'
+      properties:
+        - name
+        - network
+        - overallStatus
+        - value
+        - capability
+        - config
+        - guest
+        - runtime
+        - summary
+      with_nested_properties: true
+      with_tags: true
+
+################################### CONTROLLER TEAMS ################################################
+# controller_teams:
+# - name: Ansible_Admins 
+#   organization: Default
+# - name: Ansible_Backup
+#   organization: Default
+# - name: Ansible_Network_Cisco
+#   organization: Default
+# - name: Ansible_Network_F5
+#   organization: Default
+# - name: Ansible_Network_PaloAlto
+#   organization: Default
+# - name: Ansible_Platform
+#   organization: Default
+# - name: Ansible_RedHat_Admins
+#   organization: Default
+
+################################### CONTROLLER SETTINGS ################################################
+# controller_settings:
+# - name: AUTH_LDAP_SERVER_URI
+#   value: ldaps://GCloud-DC08.Services.gws.sa:636
+# - name: AUTH_LDAP_BIND_DN
+#   value: CN=SRV0461,OU=T1-Service Accounts,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa
+# - name: AUTH_LDAP_BIND_PASSWORD
+#   value: "{{ ad_password }}" 
+# - name: AUTH_LDAP_GROUP_TYPE
+#   value: ActiveDirectoryGroupType
+# - name: AUTH_LDAP_START_TLS
+#   value: FALSE
+# - name: AUTH_LDAP_USER_SEARCH
+#   value:
+#     - "OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     - "SCOPE_SUBTREE"
+#     - "(userPrincipalName=%(user)s)"
+# - name: AUTH_LDAP_GROUP_SEARCH
+#   value:
+#     - "OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     - "SCOPE_SUBTREE"
+#     - "(objectClass=group)"
+# - name: AUTH_LDAP_USER_ATTR_MAP
+#   value:
+#     email: "userPrincipalName"
+#     first_name: "givenName"
+#     last_name: "sn"
+# - name: AUTH_LDAP_GROUP_TYPE_PARAMS
+#   value:
+#     name_attr: "cn"
+# - name: AUTH_LDAP_USER_FLAGS_BY_GROUP
+#   value:
+#     is_superuser:
+#       - "CN=Tier1 Ansible Admins,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+# - name: AUTH_LDAP_ORGANIZATION_MAP
+#   value:
+#     Default:
+#       admins: "OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#       remove_admins: true
+#       users:
+#         - "CN=Tier1 Ansible Admins,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible Backup,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible Network Cisco,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible Network F5,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible Network PaloAlto,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible Platform,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#         - "CN=Tier1 Ansible RedHat Admins,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+# - name: AUTH_LDAP_TEAM_MAP
+#   value:
+#     Ansible_Admins: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Admins,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_Backup: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Backup,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_Network_Cisco: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Network Cisco,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_Network_F5: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Network F5,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_Network_PaloAlto: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Network PaloAlto,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_Platform: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible Platform,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+#     Ansible_RedHat_Admins: 
+#       remove: true
+#       organization: Default
+#       users: "CN=Tier1 Ansible RedHat Admins,OU=T1-Operators,OU=T1-Groups,OU=Tier 1,OU=Admin,DC=Services,DC=gws,DC=sa"
+################################### CONTROLLER ROLES ################################################
+#------------------------------- CISCO -----------------------------#
+# controller_roles:
+# - team: Ansible_Network_Cisco
+#   job_templates:
+#     - CISCO-ACI_ADD_EPG_TO_BRIDGE_DOMAIN
+#     - CISCO-ACI_MANAGE_BRIDGE_DOMAIN
+#     - CISCO-ACI_MANAGE_EPG
+#     - CISCO-ACI_MANAGE_L3OUT
+#     - CISCO-ACI-MANAGE_VRF
+#     - CISCO-NXOS_ADD_INTERFACE_TO_VRF
+#     - CISCO-NXOS-ADD_L3_INTERFACE
+#     - CISCO-NXOS-Configuration-Backup
+#     - CISCO-NXOS-CREATE_VRF
+#     - CISCO-NXOS_MANAGE_STATIC_ROUTE
+#     - CISCO-NXOS_MANAGE_VLAN
+#   role: execute
+# - team: Ansible_Network_Cisco
+#   project: CISCO-NXOS-UseCases
+#   role: use
+# - team: Ansible_Network_Cisco
+#   credentials:
+#     - CISCO-NXOS-Creds
+#     - cisco_pat_creds
+#   role: use
+# - team: Ansible_Network_Cisco
+#   inventory: CISCO-NXOS-INVENTORY
+#   role: use
+# #------------------------------- RHEL -----------------------------#
+# - team: Ansible_RedHat_Admins
+#   job_templates:
+#     - RHEL-Package-Management 
+#     - RHEL-PING
+#     - RHEL-Service-Management
+#     - RHEL-SYSTEM-HARDENING
+#     - RHEL-User-Group-Management
+#   role: execute
+# - team: Ansible_RedHat_Admins
+#   project: "RHEL Use cases"
+#   role: use
+# - team: Ansible_RedHat_Admins
+#   credentials:
+#     - rhel_pat_creds
+#     - RHEL-TEST
+#   role: use
+# - team: Ansible_RedHat_Admins
+#   inventories: 
+#     - VMWARE-Management-JED
+#     - VMWARE-Test
+#   role: use
+# #------------------------------- F5 -----------------------------#
+# - team: Ansible_Network_F5
+#   job_templates:
+#     - F5-ADD-POOL-MEMBER 
+#     - F5-CONFIGURATION-BACKUP
+#     - F5-DEVICE-INFO
+#     - F5-REMOVE-POOL-MEMBER
+#     - F5-UPDATE-POOL-MEMBER
+#   role: execute
+# - team: Ansible_Network_F5
+#   project: "F5-UseCases"
+#   role: use
+# - team: Ansible_Network_F5
+#   credentials:
+#     - f5_pat_creds
+#     - F5-Creds
+#   role: use
+# - team: Ansible_Network_F5
+#   inventories: 
+#     - F5-INVENTORY
+#   role: use
+# #------------------------------- VMWARE -----------------------------#
+# - team: Ansible_Platform
+#   job_templates:
+#     - VMWARE-VM-PROVISION 
+#     - VMWARE-TAG-VM
+#   role: execute
+# - team: Ansible_Platform
+#   project: "VMWARE-UseCases"
+#   role: use
+# - team: Ansible_Platform
+#   credentials:
+#     - VMware creds
+#     - VMWARE-Prod
+#     - vmware_pat_creds
+#     - VMware vCenter TEST
+#   role: use
+# #------------------------------- NETAPP -----------------------------#
+# - team: Ansible_Backup
+#   job_templates:
+#     - NETAPP-GET_INFO 
+#     - NETAPP-HOST_LUN_MAPPING_NETAPP
+#     - NETAPP-HOST_LUN_MAPPING_NXOS
+#     - NETAPP_SAN_GET_INFO
+#   role: execute
+# - team: Ansible_Backup
+#   project: "NETAPP-UseCases"
+#   role: use
+# - team: Ansible_Backup
+#   credentials:
+#     - NETAPP-Creds
+#     - netapp_pat_creds
+#   role: use
+# - team: Ansible_Backup
+#   inventories: 
+#     - NETAPP-INVENTORY
+#   role: use
+# #------------------------------- PALOALTO -----------------------------#
+# - team: Ansible_Network_PaloAlto
+#   job_templates:
+#     - PALOALTO-CHECK_PANOS 
+#     - PALOALTO-CREATE_RULE
+# #    - PALOALTO-UPDATE_RULE
+# #    - PALOALTO-REMOVE_IP
+# #    - PALOALTO-REMOVE_RULE
+#   role: execute
+# - team: Ansible_Network_PaloAlto
+#   project: "PALOALTO-UseCases"
+#   role: use
+# - team: Ansible_Network_PaloAlto
+#   credentials:
+#     - panos_pat_creds
+#     - PANOS-CREDS
+#   role: use
+# - team: Ansible_Network_PaloAlto
+#   inventories: 
+#     - PALOALTO-INVENTORY
+#   role: use
+
+
+################################### CREDENTIALS ################################################
+# controller_credentials:
+# - name: VMWARE
+#   organization: Default
+#   credential_type: Vault
+#   inputs:
+#     vault_password: 

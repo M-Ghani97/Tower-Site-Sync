@@ -1,0 +1,15 @@
+---
+name: F5-DEVICE-INFO-Survey
+description: F5-DEVICE-INFO-Survey
+spec:
+  - type: text
+    question_name: "F5 Device Hostname/IP"
+    question_description: "F5 Device Hostname/IP"
+    variable: target_hosts
+    required: true
+  
+  - type: textarea
+    question_name: "Information Subset(s)"
+    question_description: "Information Subset(s) (one per line)"
+    variable: info_subset
+    required: true

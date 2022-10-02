@@ -1,0 +1,62 @@
+---
+name: NETAPP-HOST_LUN_MAPPING_NXOS-Survey
+description: NETAPP-HOST_LUN_MAPPING_NXOS-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true
+  
+  - type: text
+    question_name: "Zone Name"
+    question_description: "Zone Name"
+    variable: zone_name
+    required: true
+  
+  - type: text
+    question_name: "Initiator Fcalias"
+    question_description: "Initiator Fcalias"
+    variable: zone_zoneset_alias_1
+    required: true
+  
+  - type: text
+    question_name: "Target Fcalias"
+    question_description: "Target Fcalias"
+    variable: zone_zoneset_alias_2
+    required: true
+  
+  - type: text
+    question_name: "Initiator's PWWN"
+    question_description: "Initiator's PWWN"
+    variable: zone_zoneset_pwwn_1
+    required: true
+  
+  - type: text
+    question_name: "Target's PWWN"
+    question_description: "Target's PWWN"
+    variable: zone_zoneset_pwwn_2
+    required: true
+  
+  - type: integer
+    question_name: "VSAN ID"
+    question_description: "VSAN ID"
+    variable: vsan_id
+    required: true
+  
+  - type: text
+    question_name: "Zoneset Name"
+    question_description: "Zoneset Name"
+    variable: zoneset_name
+    required: true
+    default: "Zoneset1"
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: state
+    required: true
+    choices:
+      - "create"
+    # - "delete"
+    default: "create"

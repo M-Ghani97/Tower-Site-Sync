@@ -1,0 +1,59 @@
+---
+name: CISCO-ACI-MANAGE_VRF-Survey
+description: CISCO-ACI-MANAGE_VRF-Survey
+spec:
+  - type: text
+    question_name: Tenant
+    question_description: "The name of the Tenant the VRF should belong to."
+    variable: aci_tenant
+    required: true
+  
+  - type: text
+    question_name: VRF
+    question_description: "The name of the VRF"
+    variable: aci_vrf
+    required: true
+  
+  - type: text
+    question_name: "Description"
+    question_description: "The description of VRF"
+    variable: aci_vrf_description
+    required: false
+  
+  - type: multiplechoice
+    question_name: "Policy Control Preference"
+    question_description: "Determines if the fabric hould enforce contract policies to allow routting and packet forwarding."
+    variable: policy_control_preference
+    required: true
+    choices:
+      - "enforced"
+      - "unenforced"
+    default: "unenforced"
+  
+  - type: multiplechoice
+    question_name: "Policy Control Direction"
+    question_description: "Determines fi the poicy should be enforced by the fabric on ingress of egress."
+    variable: policy_control_direction
+    required: true
+    choices:
+      - "egress"
+      - "ingress"
+    default: "ingress"    
+  
+  - type: multiplechoice
+    question_name: "Preferred Group"
+    question_description: "Enables preferred groups for the VRF under vzAny."
+    variable: preferred_group
+    required: true
+    choices:
+      - "enabled"
+      - "disabled"
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Select 'present' or 'absent' for adding or removing."
+    variable: state
+    required: true
+    choices:
+      - "present"
+      - "absent"

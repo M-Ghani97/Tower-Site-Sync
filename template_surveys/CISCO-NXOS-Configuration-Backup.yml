@@ -1,0 +1,9 @@
+---
+name: CISCO-NXOS-Configuration-Backup-Survey
+description: CISCO-NXOS-Configuration-Backup-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: target_hosts
+    required: true

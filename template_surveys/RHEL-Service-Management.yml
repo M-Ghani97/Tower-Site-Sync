@@ -1,0 +1,35 @@
+---
+name: RHEL-Service-Management-Survey
+description: RHEL-Service-Management-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Host Pattern"
+    variable: target_hosts
+    required: true
+  
+  - type: textarea
+    question_name: "Service Name(s)"
+    question_description: "Service Name (one per line)"
+    variable: services
+    required: true
+  
+  - type: multiselect
+    question_name: "Action"
+    question_description: "Service State"
+    variable: state
+    required: true
+    choices:
+      - started
+      - stopped
+      - restarted
+      - reloaded
+
+  - type: multiplechoice
+    question_name: "Enable"
+    question_description: "Enable or Disable Service"
+    variable: enable
+    required: true
+    choices:
+      - Yes
+      - No

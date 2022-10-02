@@ -1,0 +1,37 @@
+---
+name: NETAPP-HOST_LUN_MAPPING_NETAPP-Survey
+description: NETAPP-HOST_LUN_MAPPING_NETAPP-Survey
+spec:
+  - type: text
+    question_name: Host
+    question_description: "Target Devices"
+    variable: netapp_hostname
+    required: true
+    default: "10.100.4.10"
+  
+  - type: text
+    question_name: "Initiator Group Name"
+    question_description: "Initiator group to map to the given LUN"
+    variable: netapp_initiator_group_name
+    required: true
+  
+  - type: text
+    question_name: "LUN Path"
+    question_description: "Path of the LUN"
+    variable: netapp_lun_map_path
+    required: true
+  
+  - type: text
+    question_name: "The name of ther vserver to use"
+    question_description: "Virtual Server"
+    variable: netapp_lun_map_vserver
+    required: true
+
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Map(present)/Unmap(absent) LUN"
+    variable: netapp_action
+    required: true
+    choices:
+      - "present"
+      - "absent"
