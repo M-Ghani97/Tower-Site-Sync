@@ -17,7 +17,7 @@ controller_projects:
   scm_delete_on_update: 'no'
   scm_type: git
   scm_update_on_launch: 'yes'
-  scm_url: https://10.57.102.13/ialwashmi/ansible_vmware_snow.git
+  scm_url: https://github.com/M-Ghani97/sdaia-vmware.git
   credential: GitHub
 # - name: F5-UseCases
 #   organization: Default
