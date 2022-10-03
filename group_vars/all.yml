@@ -18,7 +18,7 @@ controller_projects:
   scm_type: git
   scm_update_on_launch: 'yes'
   scm_url: https://10.57.102.13/ialwashmi/ansible_vmware_snow.git
-  credential: vmware_pat_creds
+  credential: GitHub
 # - name: F5-UseCases
 #   organization: Default
 #   scm_branch: main
