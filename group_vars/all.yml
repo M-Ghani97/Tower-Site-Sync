@@ -1151,7 +1151,7 @@ controller_inventory_sources:
     inventory: VMWARE
     credential: VMWARE
     description: VMWARE
-    execution_environment: '/var/lib/awx/venv/vmware'
+    custom_virtualenv: '/var/lib/awx/venv/vmware'
     overwrite: true
     update_on_launch: true
     update_cache_timeout: 0
