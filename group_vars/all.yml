@@ -263,7 +263,7 @@ controller_templates:
   playbook: playbooks.yml
   become_enabled: false
   verbosity: 3
-  execution_environment: '/var/lib/awx/venv/vmware/'
+  custom_virtualenv: '/var/lib/awx/venv/vmware/'
   credentials:
   - "VMWARE"
   survey_enabled: true
@@ -279,7 +279,7 @@ controller_templates:
   playbook: playbooks.yml
   become_enabled: false
   verbosity: 3
-  execution_environment: '/var/lib/awx/venv/vmware/'
+  custom_virtualenv: '/var/lib/awx/venv/vmware/'
   credentials:
   - "VMWARE"
   survey_enabled: true
