@@ -3,5 +3,5 @@
   loop:
     - vm-provisioning.yml
     - vm-tagging.yml
-  loop_controls:
+  loop_control:
     loop_var: items
