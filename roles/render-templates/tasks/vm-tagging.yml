@@ -1,0 +1,13 @@
+---
+- name: Get list of Datacenters
+  community.vmware.vmware_tag_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+  register: tags  
+
+- name: Render Template
+  template:
+    src: vm-tagging.j2
+    dest: ../../../template_surveys/VMWARE-TAG-VM.yml

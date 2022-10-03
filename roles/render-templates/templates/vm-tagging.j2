@@ -1,0 +1,30 @@
+---
+name: VMWARE-TAG-VM-Survey
+description: VMWARE-TAG-VM-Survey
+spec:
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: state
+    required: true
+    choices:
+      - "add"
+      - "remove"
+      - "set"
+  
+  - type: textarea
+    question_name: "VM Names"
+    question_description: "VM Names (one per line)"
+    variable: vm_names
+    required: true
+  
+  - type: multiselect
+    question_name: "Tags"
+    question_description: "Tags"
+    variable: vm_tags
+    required: true
+    choices:
+{% for tag in tags.tag_info %}
+      - {{ tag.tag_name }}
+{% endfor %}

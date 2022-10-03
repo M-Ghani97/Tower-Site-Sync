@@ -1,0 +1,88 @@
+---
+- name: Get list of Datacenters
+  community.vmware.vmware_datacenter_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+  register: datacenters
+
+- name: Get list of Cluster
+  community.vmware.vmware_cluster_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+    datacenter: "{{ item.name }}"
+  register: clusters_names
+  loop: "{{ datacenters.datacenter_info }}"
+
+- name: Reform Cluster names
+  set_fact:
+    clusters: '{{ clusters | default([]) + item.clusters.keys() | list }}'
+  loop: "{{ clusters_names.results }}"
+
+- name: Get list of Templates
+  community.vmware.vmware_vm_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+    vm_type: template
+  register: templates
+
+- name: Get list of Folders
+  community.vmware.vmware_folder_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+    datacenter: "{{ item.name }}"
+  register: folder_names
+  loop: "{{ datacenters.datacenter_info }}"
+
+- name: Reform Flat Folder Names
+  set_fact:
+    folders: "{{ folders | default([]) + item.flat_folder_info }}"
+  loop: "{{ folder_names.results }}"
+
+- name: Reform VM Folder Name
+  set_fact:
+    vm_folders: "{{ vm_folders | default([]) + [item.path] }}"
+  when: item.path is search("/vm/")
+  loop: "{{ folders }}"
+
+- name: Get list of Datastores
+  community.vmware.vmware_datastore_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+    datacenter: "{{ item.name }}"
+  register: datastore_names
+  loop: "{{ datacenters.datacenter_info }}"
+
+- name: Reform Datastore Names
+  set_fact:
+    datastores: "{{ datastores | default([]) + item.datastores }}"
+  loop: "{{ datastore_names.results }}"
+
+- name: Reform All Datastore Names
+  set_fact:
+    vm_datastores: "{{ vm_datastores | default([]) + [item.name] }}"
+  loop: "{{ datastores }}"
+
+- name: Get list of Portgroups
+  community.vmware.vmware_portgroup_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+    cluster_name: "{{ item }}"
+  register: portgroup_names
+  loop: "{{ clusters }}"
+
+- name: Render Template
+  template:
+    src: vm-provisioning.j2
+    dest: ../../../template_surveys/VMWARE-VM-PROVISION.yml

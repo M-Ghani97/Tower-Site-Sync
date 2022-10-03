@@ -1,0 +1,7 @@
+---
+- include_roles: "{{ items }}"
+  loop:
+    - vm-provisioning.yml
+    - vm-tagging.yml
+  loop_controls:
+    loop_var: items

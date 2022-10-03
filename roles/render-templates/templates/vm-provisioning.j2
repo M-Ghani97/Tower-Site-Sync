@@ -1,0 +1,96 @@
+{%- macro input(pg_names) -%}
+  {%- for i in pg_names.results -%}
+    {%- for j in i.hosts_portgroup_info.values() -%}
+      {% for k in j %}
+- {{ k.portgroup }}
+      {% endfor %}
+    {%- endfor -%} 
+  {%- endfor -%}
+{%- endmacro -%}
+
+---
+name: VMWARE-VM-PROVISION-Survey
+description: VMWARE-VM-PROVISION-Survey
+spec:
+
+  - type: multiplechoice
+    question_name: "Datacenter"
+    question_description: "Datacenter Name"
+    variable: datacenter
+    required: true
+    choices:
+{% for datacenter in datacenters.datacenter_info %}
+      - {{ datacenter.name }}
+{% endfor %}
+
+  - type: multiplechoice
+    question_name: "Cluster Name"
+    question_description: "Cluster Name"
+    variable: cluster
+    required: true
+    choices:
+{% for cluster in clusters %}
+      - {{ cluster }}
+{% endfor %}
+
+  - type: multiplechoice
+    question_name: "Template"
+    question_description: "Template"
+    variable: template
+    required: true
+    choices:
+{% for template in templates.virtual_machines %}
+      - {{ template.guest_name }}
+{% endfor %}
+
+  - type: multiplechoice
+    question_name: "Folder"
+    question_description: "Folder"
+    variable: folder
+    required: true
+    choices: 
+{% for vm_folder in vm_folders %}
+      - {{ vm_folder }}
+{% endfor %}
+  
+  - type: text
+    question_name: "VM Name"
+    question_description: "VM Name"
+    variable: vm_name
+    required: true
+  
+  - type: integer
+    question_name: "CPU"
+    question_description: "CPU"
+    variable: cpus
+    required: true
+  
+  - type: integer
+    question_name: "Memory (MB)"
+    question_description: "Memory (MB)"
+    variable: memory
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Datastore"
+    question_description: "Datastore"
+    variable: datastore
+    required: true
+    choices:
+{% for vm_datastore  in vm_datastores %}
+      - {{ vm_datastore }}
+{% endfor %}
+  
+  - type: integer
+    question_name: "Disk Size (GB)"
+    question_description: "Disk Size (GB)"
+    variable: disk_size
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Network"
+    question_description: "Network"
+    variable: network_name
+    required: true
+    choices: 
+      {{ input(portgroup_names) }}
