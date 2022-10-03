@@ -12,7 +12,7 @@ controller_projects:
 #   credential: rhel_pat_creds
 - name: VMWARE-UseCases
   organization: Default
-  scm_branch: main
+  scm_branch: master
   scm_clean: 'yes'
   scm_delete_on_update: 'no'
   scm_type: git
