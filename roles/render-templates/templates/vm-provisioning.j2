@@ -1,8 +1,8 @@
-{%- set pg = [] -%}
+{%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
 {%- for k in j -%}
-    {{pg.append(k.portgroup)}}
+    {{pgs.append(k.portgroup)}}
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
@@ -85,10 +85,13 @@ spec:
     question_description: "Disk Size (GB)"
     variable: disk_size
     required: true
-  
+
   - type: multiplechoice
     question_name: "Network"
     question_description: "Network"
     variable: network_name
     required: true
-    choices: {{ pg }}
+    choices: 
+{% for pg in pgs %}
+      - {{ pg }}
+{% endfor %}
