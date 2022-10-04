@@ -92,6 +92,6 @@ spec:
     variable: network_name
     required: true
     choices:
-    {% for _pg in pgs %}
+    {% for pg in pgs %}
       - "{{ pg }}"
     {% endfor %}
