@@ -1,11 +1,14 @@
+---
+    
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
-{%- for k in i -%}
-  {{pgs.append( k.hosts_portgroup_info.[10.82.11.1][portgroup] )}}
-{%- endfor -%}]
+{%- for j in i.hosts_portgroup_info.values() -%}
+{%- for k in j -%}
+  {{pgs.append( k.portgroup )}}
 {%- endfor -%}
-{#}
----
+{%- endfor -%}
+{%- endfor -%}
+
 name: VMWARE-VM-PROVISION-Survey
 description: VMWARE-VM-PROVISION-Survey
 spec:
@@ -82,11 +85,7 @@ spec:
     question_name: "Disk Size (GB)"
     question_description: "Disk Size (GB)"
     variable: disk_size
-    required: true #}
----
-name: VMWARE-VM-PROVISION-Survey
-description: VMWARE-VM-PROVISION-Survey
-spec:
+    required: true
 
   - type: multiplechoice
     question_name: "Datastore"
