@@ -1,10 +1,8 @@
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
-{%- for j in i.hosts_portgroup_info.values() -%}
-{%- for k in j -%}
-  {{pgs.append( k.portgroup )}}
-{%- endfor -%}
-{%- endfor -%}
+{%- for k in i -%}
+  {{pgs.append( k[hosts_portgroup_info][10.82.11.1][portgroup] )}}
+{%- endfor -%}]
 {%- endfor -%}
 {#}
 ---
@@ -97,5 +95,5 @@ spec:
     required: true
     choices:
 {% for pg in pgs %}
-      - "{{ pg }}\n"
+      - "{{ pg }}"
 {% endfor %}
