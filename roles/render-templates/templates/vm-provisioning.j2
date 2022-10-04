@@ -92,11 +92,11 @@ spec:
     variable: nw
     required: true
     choices:
-      - Network,Management
+      - Network Management
       - VM
       - New 
       - Management
       - STC-DR
-{% for pg in pgs %}
+{#{% for pg in pgs %}
       - "{{ pg }}"
-{% endfor %}
+{% endfor %} #}

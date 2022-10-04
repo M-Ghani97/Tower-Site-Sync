@@ -13,7 +13,7 @@
     - name: Generate Template
       include_role:
         name: render-templates
-      tags: job_templates
+      tags: always
       vars:
         vcenter_hostname: 10.82.11.10
         vcenter_username: administrator@ivlab.cloud
