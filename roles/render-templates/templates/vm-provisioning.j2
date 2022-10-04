@@ -1,8 +1,10 @@
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
+  {{ j }}
 {%- for k in j -%}
-    {{pgs.append(k.portgroup)}}
+    {{j}}
+    {{ pgs.append(k.portgroup) }}
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
@@ -87,11 +89,12 @@ spec:
     required: true #}
 
   - type: multiplechoice
-    question_name: "Datastore"
-    question_description: "Datastore"
-    variable: nw
+    question_name: "Network"
+    question_description: "Network"
+    variable: network
     required: true
     choices: {{ pgs }}
+
 {#{% for pg in pgs %}
       - "{{ pg }}"
 {% endfor %} #}
