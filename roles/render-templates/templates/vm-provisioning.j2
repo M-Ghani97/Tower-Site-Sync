@@ -1,14 +1,12 @@
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
-  {{ j }}
 {%- for k in j -%}
-    {{j}}
-    {{ pgs.append(k.portgroup) }}
+  {{pgs.append( k.portgroup )}}
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
-{#
+{#}
 ---
 name: VMWARE-VM-PROVISION-Survey
 description: VMWARE-VM-PROVISION-Survey
@@ -89,12 +87,11 @@ spec:
     required: true #}
 
   - type: multiplechoice
-    question_name: "Network"
-    question_description: "Network"
-    variable: network
+    question_name: "Datastore"
+    question_description: "Datastore"
+    variable: nw
     required: true
     choices: {{ pgs }}
-
 {#{% for pg in pgs %}
       - "{{ pg }}"
 {% endfor %} #}
