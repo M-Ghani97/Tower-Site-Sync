@@ -1,7 +1,7 @@
 ---
-- include_tasks: "{{ items }}"
+- include_tasks: "{{ role_items }}"
   loop:
     - vm-provisioning.yml
     - vm-tagging.yml
   loop_control:
-    loop_var: items
+    loop_var: role_items
