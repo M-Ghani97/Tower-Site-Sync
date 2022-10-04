@@ -14,12 +14,6 @@
     vcenter_username: administrator@ivlab.cloud
     vcenter_password: letmein2iVolve@
 
-  # pre_tasks:
-  #   - name: Generate Template
-  #     include_role:
-  #       name: render-templates
-  #     tags: always
-
   roles:
     - {role: render-templates, tags: job_templates}
     - {role: settings, when: controller_settings is defined, tags: settings}
