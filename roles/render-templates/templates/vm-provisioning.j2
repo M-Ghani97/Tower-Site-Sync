@@ -87,11 +87,11 @@ spec:
     required: true
 
   - type: multiplechoice
-    question_name: "Network"
-    question_description: "Network"
-    variable: network_name
+    question_name: "Datastore"
+    question_description: "Datastore"
+    variable: datastore
     required: true
-    choices: 
+    choices:
 {% for pg in pgs %}
-      - {{ pg }}
+      - "{{ pg }}"
 {% endfor %}
