@@ -1,4 +1,4 @@
-{%- set pgs = [] -%}
+{# {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
 {%- for k in j -%}
@@ -6,6 +6,8 @@
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
+#}
+{% include 'vm-pgs.yml' with _pgs=pgs %} 
 
 ---
 name: VMWARE-VM-PROVISION-Survey
@@ -92,6 +94,6 @@ spec:
     variable: network_name
     required: true
     choices:
-{% for pg in pgs %}
-      - "{{ pg }}"
+{% for _pg in _pgs %}
+      - "{{ _pg }}"
 {% endfor %}

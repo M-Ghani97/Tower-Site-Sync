@@ -1,0 +1,8 @@
+{%- set pgs = [] -%}
+{%- for i in portgroup_names.results -%}
+{%- for j in i.hosts_portgroup_info.values() -%}
+{%- for k in j -%}
+  {{pgs.append( k.portgroup )}}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
