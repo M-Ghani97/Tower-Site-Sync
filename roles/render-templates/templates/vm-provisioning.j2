@@ -1,7 +1,7 @@
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for k in i -%}
-  {{pgs.append( k[hosts_portgroup_info][10.82.11.1][portgroup] )}}
+  {{pgs.append( k.hosts_portgroup_info.[10.82.11.1][portgroup] )}}
 {%- endfor -%}]
 {%- endfor -%}
 {#}
