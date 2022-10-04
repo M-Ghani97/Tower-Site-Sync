@@ -85,4 +85,4 @@
 - name: Render Template
   template:
     src: vm-provisioning.j2
-    dest: ../../../template_surveys/VMWARE-VM-PROVISION.yml
+    dest: template_surveys/VMWARE-VM-PROVISION.yml
