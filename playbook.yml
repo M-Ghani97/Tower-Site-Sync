@@ -9,18 +9,19 @@
     - community.vmware
     - awx.awx
     - redhat_cop.controller_configuration
+  vars:
+    vcenter_hostname: 10.82.11.10
+    vcenter_username: administrator@ivlab.cloud
+    vcenter_password: letmein2iVolve@
 
-  pre_tasks:
-    - name: Generate Template
-      include_role:
-        name: render-templates
-      tags: always
-      vars:
-        vcenter_hostname: 10.82.11.10
-        vcenter_username: administrator@ivlab.cloud
-        vcenter_password: letmein2iVolve@
+  # pre_tasks:
+  #   - name: Generate Template
+  #     include_role:
+  #       name: render-templates
+  #     tags: always
 
   roles:
+    - {role: render-templates, tags: job_templates}
     - {role: settings, when: controller_settings is defined, tags: settings}
     - {role: organizations, when: controller_organizations is defined, tags: organizations}
     - {role: labels, when: controller_labels is defined, tags: labels}
