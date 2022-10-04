@@ -1,4 +1,4 @@
-{%- macro input(pg_names) -%}
+{# {%- macro input(pg_names) -%}
   {%- for i in pg_names.results -%}
     {%- for j in i.hosts_portgroup_info.values() -%}
       {% for k in j %}
@@ -6,7 +6,7 @@
       {% endfor %}
     {%- endfor -%} 
   {%- endfor -%}
-{%- endmacro -%}
+{%- endmacro -%} #}
 
 ---
 name: VMWARE-VM-PROVISION-Survey
@@ -93,4 +93,10 @@ spec:
     variable: network_name
     required: true
     choices: 
-      {{ input(portgroup_names) }}
+{%- for i in pg_names.results -%}
+{%- for j in i.hosts_portgroup_info.values() -%}
+{% for k in j %}
+      - "{{ k.portgroup }}"
+{% endfor %}
+{%- endfor -%} 
+{%- endfor -%}
