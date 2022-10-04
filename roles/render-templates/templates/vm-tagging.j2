@@ -26,5 +26,5 @@ spec:
     required: true
     choices:
 {% for tag in tags.tag_info %}
-      - {{ tag.tag_name }}
+      - \"{{ tag.tag_name }}\"
 {% endfor %}

@@ -2,7 +2,7 @@
   {%- for i in pg_names.results -%}
     {%- for j in i.hosts_portgroup_info.values() -%}
       {% for k in j %}
-- {{ k.portgroup }}
+- \"{{ k.portgroup }}\"
       {% endfor %}
     {%- endfor -%} 
   {%- endfor -%}
@@ -20,7 +20,7 @@ spec:
     required: true
     choices:
 {% for datacenter in datacenters.datacenter_info %}
-      - {{ datacenter.name }}
+      - \"{{ datacenter.name }}\"
 {% endfor %}
 
   - type: multiplechoice
@@ -30,7 +30,7 @@ spec:
     required: true
     choices:
 {% for cluster in clusters %}
-      - {{ cluster }}
+      - \"{{ cluster }}\"
 {% endfor %}
 
   - type: multiplechoice
@@ -40,7 +40,7 @@ spec:
     required: true
     choices:
 {% for template in templates.virtual_machines %}
-      - {{ template.guest_name }}
+      - \"{{ template.guest_name }}\"
 {% endfor %}
 
   - type: multiplechoice
@@ -50,7 +50,7 @@ spec:
     required: true
     choices: 
 {% for vm_folder in vm_folders %}
-      - {{ vm_folder }}
+      - \"{{ vm_folder }}\"
 {% endfor %}
   
   - type: text
@@ -78,7 +78,7 @@ spec:
     required: true
     choices:
 {% for vm_datastore  in vm_datastores %}
-      - {{ vm_datastore }}
+      - \"{{ vm_datastore }}\"
 {% endfor %}
   
   - type: integer
