@@ -1,6 +1,7 @@
 ---
 - name: Playbook to configure ansible Controller post installation
   hosts: localhost
+  gather_facts: false
   vars_files:
     - creds.yml
   connection: local
@@ -17,6 +18,7 @@
       vars:
         vcenter_hostname: 10.82.11.10
         vcenter_username: administrator@ivlab.cloud
+        vcenter_password: letmein2iVolve@
 
   roles:
     # - {role: settings, when: controller_settings is defined, tags: settings}

@@ -6,7 +6,7 @@
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
-
+{#
 ---
 name: VMWARE-VM-PROVISION-Survey
 description: VMWARE-VM-PROVISION-Survey
@@ -84,19 +84,14 @@ spec:
     question_name: "Disk Size (GB)"
     question_description: "Disk Size (GB)"
     variable: disk_size
-    required: true
+    required: true #}
 
   - type: multiplechoice
     question_name: "Datastore"
     question_description: "Datastore"
     variable: nw
     required: true
-    choices:
-      - Network Management
-      - VM
-      - New 
-      - Management
-      - STC-DR
+    choices: {{ pgs | list}}
 {#{% for pg in pgs %}
       - "{{ pg }}"
 {% endfor %} #}

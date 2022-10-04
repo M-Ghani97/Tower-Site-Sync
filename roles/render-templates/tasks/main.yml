@@ -2,6 +2,6 @@
 - include_tasks: "{{ items }}"
   loop:
     - vm-provisioning.yml
-    - vm-tagging.yml
+    # - vm-tagging.yml
   loop_control:
     loop_var: items

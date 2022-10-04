@@ -1403,3 +1403,73 @@ controller_inventory_sources:
 #   credential_type: Vault
 #   inputs:
 #     vault_password: 
+# a: {
+#     "portgroup_names": {
+#         "changed": false,
+#         "msg": "All items completed",
+#         "results": [
+#             {
+#                 "ansible_loop_var": "item",
+#                 "changed": false,
+#                 "failed": false,
+#                 "hosts_portgroup_info": {
+#                     "10.82.11.1": [
+#                         {
+#                             "portgroup": "cloud.private.untagged.0.1-vSwitch0",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         },
+#                         {
+#                             "portgroup": "VM Network",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         },
+#                         {
+#                             "portgroup": "New port group",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         },
+#                         {
+#                             "portgroup": "Management Network",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         },
+#                         {
+#                             "portgroup": "STC-DR",
+#                             "vlan_id": 200,
+#                             "vswitch": "STC-DR"
+#                         }
+#                     ],
+#                     "10.82.11.5": [
+#                         {
+#                             "portgroup": "VM Network",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         },
+#                         {
+#                             "portgroup": "Management Network",
+#                             "vlan_id": 0,
+#                             "vswitch": "vSwitch0"
+#                         }
+#                     ]
+#                 },
+#                 "invocation": {
+#                     "module_args": {
+#                         "cluster_name": "IV-LAB",
+#                         "esxi_hostname": null,
+#                         "hostname": "10.82.11.10",
+#                         "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+#                         "policies": false,
+#                         "port": 443,
+#                         "proxy_host": null,
+#                         "proxy_port": null,
+#                         "username": "administrator@ivlab.cloud",
+#                         "validate_certs": false
+#                     }
+#                 },
+#                 "item": "IV-LAB"
+#             }
+#         ],
+#         "skipped": false
+#     }
+# }
