@@ -91,7 +91,7 @@ spec:
     question_description: "Datastore"
     variable: nw
     required: true
-    choices: {{ pgs | list}}
+    choices: {{ pgs }}
 {#{% for pg in pgs %}
       - "{{ pg }}"
 {% endfor %} #}
