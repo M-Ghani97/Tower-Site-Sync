@@ -10,4 +10,4 @@
 - name: Render Template
   template:
     src: vm-tagging.j2
-    dest: ../../../template_surveys/VMWARE-TAG-VM.yml
+    dest: template_surveys/VMWARE-TAG-VM.yml
