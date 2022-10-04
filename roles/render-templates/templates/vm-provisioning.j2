@@ -1,5 +1,3 @@
----
-    
 {%- set pgs = [] -%}
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
@@ -9,6 +7,7 @@
 {%- endfor -%}
 {%- endfor -%}
 
+---
 name: VMWARE-VM-PROVISION-Survey
 description: VMWARE-VM-PROVISION-Survey
 spec:
