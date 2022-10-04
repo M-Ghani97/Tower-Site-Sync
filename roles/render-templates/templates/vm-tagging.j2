@@ -19,12 +19,12 @@ spec:
     variable: vm_names
     required: true
   
-  - type: multiselect
+  - type: multiplechoice
     question_name: "Tags"
     question_description: "Tags"
     variable: vm_tags
     required: true
     choices:
 {% for tag in tags.tag_info %}
-      - \"{{ tag.tag_name }}\"
+      - "{{ tag.tag_name }}"
 {% endfor %}
