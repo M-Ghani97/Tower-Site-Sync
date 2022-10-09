@@ -1,14 +1,14 @@
 ---
 - include_tasks: "vm-provisioning.yml"
   vars:
-    vcenter_hostname: "{{ vc_hosts }}"
+    vcenter_hostname: "{{ vc_host }}"
   loop: "{{ vcenter_hosts }}"
   loop_control:
     loop_var: vc_host
 
 - include_tasks: "vm-tagging.yml"
   vars:
-    vcenter_hostname: "{{ vc_hosts }}"
+    vcenter_hostname: "{{ vc_host }}"
   loop: "{{ vcenter_hosts }}"
   loop_control:
     loop_var: vc_host
