@@ -1,4 +1,12 @@
 {%- set pgs = [] -%}
+{%- for i in dvs_portgroup_names.results -%}
+{%- for j in i.dvs_portgroup_info.values() -%}
+{%- for k in j -%}
+  {{pgs.append( k.portgroup_name )}}
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}
+
 {%- for i in portgroup_names.results -%}
 {%- for j in i.hosts_portgroup_info.values() -%}
 {%- for k in j -%}
@@ -6,6 +14,8 @@
 {%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
+
+{%- set portgrps = pgs | unique -%}
 
 ---
 name: VMWARE-VM-PROVISION-Survey [{{ vcenter_hostname }}]
@@ -92,6 +102,6 @@ spec:
     variable: network_name
     required: true
     choices:
-    {% for pg in pgs %}
+{% for pg in portgrps %}
       - "{{ pg }}"
-    {% endfor %}
+{% endfor %}

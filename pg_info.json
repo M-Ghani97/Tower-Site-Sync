@@ -1,0 +1,647 @@
+{
+    "portgroup_names": {
+        "changed": false,
+        "msg": "All items completed",      
+        "results": [
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "dvs_portgroup_info": {
+                    "DSwitch": [
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-762",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": false,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 8,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "STC-DR-LAN",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1231",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_44f85ef8-4004-4840-8bce-206dd33677ee",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1180",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_16dcf07b-4c94-4c06-ac48-41f4205ada57htyu37",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1276",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 0,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "trt-er-4f11-adhjs8b3-7ae3f01afa25233",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1260",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_137e5b7f-er-4f11-adhjs8b3-7ae3f01afa25233",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-743",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": false,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 10,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "Ansible-Mgmt",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-744",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_0001",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1233",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_fb4831c5-b979-4a2d-b2e6-99b795681b0b",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1240",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_4794984e-6fa6-440d-bef3-e6e7c86e7ad1",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1255",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_aa04acae-bf2a-4b4f-8d4c-9f7649da6883",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-355",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 2,
+                            "port_allocation": "fixed",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "DSwitch-DVUplinks-354",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch",
+                            "key": "dvportgroup-1181",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": true,
+                                "promiscuous": true
+                            },
+                            "num_ports": 24,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": true,
+                                "live_port_move": true,
+                                "network_rp_override": true,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": true,
+                                "shaping_override": false,
+                                "traffic_filter_override": true,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": true
+                            },
+                            "portgroup_name": "customer_network_16dcf07b-4c94-4c06-ac48-41f4205ada57htyu38",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        }
+                    ],
+                    "DSwitch 1": [
+                        {
+                            "active_uplinks": [],
+                            "description": null,
+                            "dvswitch_name": "DSwitch 1",
+                            "key": "dvportgroup-1223",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": true,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 8,
+                            "port_allocation": "fixed",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "DSwitch 1-DVUplinks-1222",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1",
+                                "Uplink 2",
+                                "Uplink 3",
+                                "Uplink 4"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch 1",
+                            "key": "dvportgroup-1225",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": false,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 8,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "DPortGroup 1",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        },
+                        {
+                            "active_uplinks": [
+                                "Uplink 1",
+                                "Uplink 2",
+                                "Uplink 3",
+                                "Uplink 4"
+                            ],
+                            "description": null,
+                            "dvswitch_name": "DSwitch 1",
+                            "key": "dvportgroup-1224",
+                            "mac_learning": {},
+                            "network_policy": {
+                                "forged_transmits": false,
+                                "mac_changes": false,
+                                "promiscuous": false
+                            },
+                            "num_ports": 8,
+                            "port_allocation": "elastic",
+                            "port_binding": "static",
+                            "port_policy": {
+                                "block_override": true,
+                                "ipfix_override": false,
+                                "live_port_move": false,
+                                "network_rp_override": false,
+                                "port_config_reset_at_disconnect": true,
+                                "security_override": false,
+                                "shaping_override": false,
+                                "traffic_filter_override": false,
+                                "uplink_teaming_override": false,
+                                "vendor_config_override": false,
+                                "vlan_override": false
+                            },
+                            "portgroup_name": "DPortGroup",
+                            "standby_uplinks": [],
+                            "teaming_policy": {
+                                "inbound_policy": true,
+                                "notify_switches": true,
+                                "policy": "loadbalance_srcid",
+                                "rolling_order": false
+                            },
+                            "type": "earlyBinding",
+                            "vlan_info": {}
+                        }
+                    ]
+                },
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "datacenter": "IV-LAB",
+                        "dvswitch": null,
+                        "hostname": "10.82.11.10",
+                        "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                        "port": 443,
+                        "proxy_host": null,
+                        "proxy_port": null,
+                        "show_mac_learning": true,
+                        "show_network_policy": true,
+                        "show_port_policy": true,
+                        "show_teaming_policy": true,
+                        "show_uplinks": true,
+                        "show_vlan_info": false,
+                        "username": "administrator@ivlab.cloud",
+                        "validate_certs": false
+                    }
+                },
+                "item": {
+                    "config_status": "gray",
+                    "moid": "datacenter-2",
+                    "name": "IV-LAB",
+                    "overall_status": "gray"
+                }
+            }
+        ],
+        "skipped": false
+    }
+}

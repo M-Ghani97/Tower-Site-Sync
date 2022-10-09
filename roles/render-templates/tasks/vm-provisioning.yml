@@ -73,14 +73,23 @@
   loop: "{{ datastores }}"
 
 - name: Get list of Portgroups
-  community.vmware.vmware_portgroup_info:
-    hostname: '{{ vcenter_hostname }}'
-    username: '{{ vcenter_username }}'
-    password: '{{ vcenter_password }}'
-    validate_certs: False
-    cluster_name: "{{ item }}"
-  register: portgroup_names
-  loop: "{{ clusters }}"
+  block:
+    - community.vmware.vmware_dvs_portgroup_info:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        validate_certs: False
+        datacenter: "{{ item.name }}"
+      register: dvs_portgroup_names
+      loop: "{{ datacenters.datacenter_info }}"
+    - community.vmware.vmware_portgroup_info:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        validate_certs: False
+        cluster_name: "{{ item }}"
+      register: portgroup_names
+      loop: "{{ clusters }}"
 
 - name: Render Template
   template:

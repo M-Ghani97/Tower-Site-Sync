@@ -18,7 +18,7 @@
   hosts: localhost
   gather_facts: false
   vars_files:
-    - group_vars/myvar.yml
+    - group_vars/aap_vars.yml
   #   - creds.yml
   connection: local
   collections:

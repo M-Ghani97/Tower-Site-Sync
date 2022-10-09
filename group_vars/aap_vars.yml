@@ -1,0 +1,87 @@
+---
+################################### PROJECTS ################################################
+controller_projects:
+- name: VMWARE-UseCases
+  organization: Default
+  scm_branch: master
+  scm_clean: 'yes'
+  scm_delete_on_update: 'no'
+  scm_type: git
+  scm_update_on_launch: 'yes'
+  scm_url: https://github.com/M-Ghani97/sdaia-vmware.git
+################################### JOB TEMPLATES ################################################
+controller_templates:
+- name: VMWARE-VM-PROVISION [10.82.11.10]
+  description: VMWARE-VM-PROVISION [10.82.11.10]
+  organization: Default
+  job_type: run
+  inventory: VMWARE
+  project: VMWARE-UseCases
+  playbook: playbooks.yml
+  become_enabled: false
+  verbosity: 3
+  custom_virtualenv: '/var/lib/awx/venv/vmware/'
+  credentials:
+  - "VMWARE"
+  survey_enabled: true
+  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-VM-PROVISION-10.82.11.10.yml') | from_yaml }}"
+  extra_vars:
+    task: provision_vm
+- name: VMWARE-TAG-VM
+  description: VMWARE-TAG-VM
+  organization: Default
+  job_type: run
+  inventory: VMWARE
+  project: VMWARE-UseCases
+  playbook: playbooks.yml
+  become_enabled: false
+  verbosity: 3
+  custom_virtualenv: '/var/lib/awx/venv/vmware/'
+  credentials:
+  - "VMWARE"
+  survey_enabled: true
+  survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM-10.82.11.10.yml') | from_yaml }}"
+  extra_vars:
+    task: tag_vm
+
+################################### INVENTORIES ################################################
+controller_inventories:
+  - name: VMWARE
+    organization: Default
+################################### HOSTS ################################################
+# controller_hosts:
+################################### INVENTORY SOURCES ################################################
+controller_inventory_sources:
+  - name: VMWARE
+    source: vmware
+    inventory: VMWARE
+    credential: VMWARE
+    description: VMWARE
+    custom_virtualenv: '/var/lib/awx/venv/vmware'
+    overwrite: true
+    update_on_launch: true
+    update_cache_timeout: 0
+    source_vars:
+      plugin: community.vmware.vmware_vm_inventory
+      hostnames:
+        - 'config.name'
+      properties:
+        - name
+        - network
+        - overallStatus
+        - value
+        - capability
+        - config
+        - guest
+        - runtime
+        - summary
+      with_nested_properties: true
+      with_tags: true
+################################### CONTROLLER TEAMS ################################################
+# controller_teams:
+################################### CONTROLLER ROLES ################################################
+# controller_roles:
+################################### CONTROLLER SETTINGS ################################################
+# controller_settings:
+################################### CREDENTIALS ################################################
+# controller_credentials:
