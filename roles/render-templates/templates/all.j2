@@ -255,8 +255,8 @@ controller_templates:
 #     task: update_pool_member
 #---------------------------------- VMWARE -------------------------------#
 {% for host in vcenter_hosts %}
-- name: VMWARE-VM-PROVISION [{{ vcenter_hostname }}]
-  description: VMWARE-VM-PROVISION [{{ vcenter_hostname }}]
+- name: VMWARE-VM-PROVISION [{{ host }}]
+  description: VMWARE-VM-PROVISION [{{ host }}]
   organization: Default
   job_type: run
   inventory: VMWARE
@@ -268,7 +268,7 @@ controller_templates:
   credentials:
   - "VMWARE"
   survey_enabled: true
-  survey_spec: {{ '"{{' }} lookup('template', 'template_surveys/VMWARE-VM-PROVISION-{{ vcenter_hostname }}.yml') | from_yaml {{ '}}"' }}
+  survey_spec: {{ '"{{' }} lookup('template', 'template_surveys/VMWARE-VM-PROVISION-{{ host }}.yml') | from_yaml {{ '}}"' }}
   extra_vars:
     task: provision_vm
 - name: VMWARE-TAG-VM
@@ -284,7 +284,7 @@ controller_templates:
   credentials:
   - "VMWARE"
   survey_enabled: true
-  survey_spec: {{ '"{{' }} lookup('template', 'template_surveys/VMWARE-TAG-VM-{{ vcenter_hostname }}.yml') | from_yaml {{ '}}"' }}
+  survey_spec: {{ '"{{' }} lookup('template', 'template_surveys/VMWARE-TAG-VM-{{ host }}.yml') | from_yaml {{ '}}"' }}
   extra_vars:
     task: tag_vm
 {% endfor %}
