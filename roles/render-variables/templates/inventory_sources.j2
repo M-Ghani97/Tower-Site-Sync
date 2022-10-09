@@ -1,0 +1,27 @@
+################################### INVENTORY SOURCES ################################################
+controller_inventory_sources:
+  - name: VMWARE
+    source: vmware
+    inventory: VMWARE
+    credential: VMWARE
+    description: VMWARE
+    custom_virtualenv: '/var/lib/awx/venv/vmware'
+    overwrite: true
+    update_on_launch: true
+    update_cache_timeout: 0
+    source_vars:
+      plugin: community.vmware.vmware_vm_inventory
+      hostnames:
+        - 'config.name'
+      properties:
+        - name
+        - network
+        - overallStatus
+        - value
+        - capability
+        - config
+        - guest
+        - runtime
+        - summary
+      with_nested_properties: true
+      with_tags: true
