@@ -10,5 +10,5 @@
 - name: Render Template
   template:
     src: vmware-vm_tagging.j2
-    dest: template_surveys/VMWARE-TAG-VM.yml
+    dest: template_surveys/VMWARE-TAG-VM-{{ vcenter_hostname }}.yml
     force: true
