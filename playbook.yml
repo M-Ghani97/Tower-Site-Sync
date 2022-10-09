@@ -1,4 +1,15 @@
 ---
+- name: Render Main vars
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  collections:
+    - community.vmware
+    - awx.awx
+    - redhat_cop.controller_configuration
+   roles:
+    - {role: render-templates, tags: job_templates} 
+
 - name: Playbook to configure ansible Controller post installation
   hosts: localhost
   gather_facts: false
@@ -15,7 +26,7 @@
     vcenter_password: 727Pn#H1Ufwb
 
   roles:
-    - {role: render-templates, tags: job_templates}
+    # - {role: render-templates, tags: job_templates}
     - {role: settings, when: controller_settings is defined, tags: settings}
     - {role: organizations, when: controller_organizations is defined, tags: organizations}
     - {role: labels, when: controller_labels is defined, tags: labels}
