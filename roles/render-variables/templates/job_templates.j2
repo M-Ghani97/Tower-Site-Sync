@@ -1,6 +1,6 @@
 ################################### JOB TEMPLATES ################################################
 controller_templates:
-{% for host in vcenter_hosts %}
+{%- for host in vcenter_hosts -%}
 - name: VMWARE-VM-PROVISION [{{ host }}]
   description: VMWARE-VM-PROVISION [{{ host }}]
   organization: Default
@@ -33,4 +33,4 @@ controller_templates:
   survey_spec: {{ '"{{' }} lookup('template', 'template_surveys/VMWARE-TAG-VM-{{ host }}.yml') | from_yaml {{ '}}"' }}
   extra_vars:
     task: tag_vm
-{% endfor %}
+{%- endfor -%}
