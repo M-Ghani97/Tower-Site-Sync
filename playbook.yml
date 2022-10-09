@@ -7,7 +7,7 @@
     - community.vmware
     - awx.awx
     - redhat_cop.controller_configuration
-   roles:
+  roles:
     - {role: render-templates, tags: job_templates} 
 
 - name: Playbook to configure ansible Controller post installation
