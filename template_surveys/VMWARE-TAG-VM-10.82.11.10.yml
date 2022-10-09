@@ -1,0 +1,33 @@
+---
+name: VMWARE-TAG-VM-Survey [10.82.11.10]
+description: VMWARE-TAG-VM-Survey [10.82.11.10]
+spec:
+  
+  - type: multiplechoice
+    question_name: "Action"
+    question_description: "Action"
+    variable: state
+    required: true
+    choices:
+      - "add"
+      - "remove"
+      - "set"
+  
+  - type: textarea
+    question_name: "VM Names"
+    question_description: "VM Names (one per line)"
+    variable: vm_names
+    required: true
+  
+  - type: multiplechoice
+    question_name: "Tags"
+    question_description: "Tags"
+    variable: vm_tags
+    required: true
+    choices:
+      - "ocp-78nqz"
+      - "ocp-67h7l"
+      - "my-vm2"
+      - "openshift-nbbbp"
+      - "openshift-bk4wj"
+      - "my-vm1"

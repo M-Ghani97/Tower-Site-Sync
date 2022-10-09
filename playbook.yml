@@ -1,19 +1,24 @@
 ---
-# - name: Render Main vars
-#   hosts: localhost
-#   gather_facts: False
-#   connection: local
-#   collections:
-#     - community.vmware
-#     - awx.awx
-#     - redhat_cop.controller_configuration
-#   roles:
-#     - {role: render-templates, tags: job_templates} 
+- name: Render Main vars
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  vars:
+    vcenter_hosts:
+      - '10.82.11.10'
+  collections:
+    - community.vmware
+    - awx.awx
+    - redhat_cop.controller_configuration
+  roles:
+    - {role: render-variables, tags: always}
+
 
 - name: Playbook to configure ansible Controller post installation
   hosts: localhost
   gather_facts: false
-  # vars_files:
+  vars_files:
+    - group_vars/myvar.yml
   #   - creds.yml
   connection: local
   collections:
@@ -21,12 +26,13 @@
     - awx.awx
     - redhat_cop.controller_configuration
   vars:
+    vcenter_hosts:
+      - '10.82.11.10'
     # vcenter_hostname: 10.82.11.10
     vcenter_username: administrator@ivlab.cloud
     vcenter_password: 727Pn#H1Ufwb
 
   roles:
-    - {role: render-variables, tags: job_templates}
     - {role: render-templates, tags: job_templates}
     - {role: settings, when: controller_settings is defined, tags: settings}
     - {role: organizations, when: controller_organizations is defined, tags: organizations}

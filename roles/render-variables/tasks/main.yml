@@ -2,8 +2,5 @@
 - name: Render Main variable files
   template:
     src: all.j2
-    dest: main_vars.yml
+    dest: group_vars/myvar.yml
     force: true
-- name: Include var file
-  include_vars:
-    name: main_vars.yml
