@@ -1,1 +1,5 @@
 ---
+vcenter_username: administrator@ivlab.cloud
+vcenter_password: 727Pn#H1Ufwb
+vcenter_hosts:
+  - '10.82.11.10'
