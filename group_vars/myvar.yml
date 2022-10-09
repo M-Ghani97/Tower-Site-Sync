@@ -10,7 +10,8 @@ controller_projects:
   scm_update_on_launch: 'yes'
   scm_url: https://github.com/M-Ghani97/sdaia-vmware.git
 ################################### JOB TEMPLATES ################################################
-controller_templates:- name: VMWARE-VM-PROVISION [10.82.11.10]
+controller_templates:
+- name: VMWARE-VM-PROVISION [10.82.11.10]
   description: VMWARE-VM-PROVISION [10.82.11.10]
   organization: Default
   job_type: run
@@ -42,6 +43,7 @@ controller_templates:- name: VMWARE-VM-PROVISION [10.82.11.10]
   survey_spec: "{{ lookup('template', 'template_surveys/VMWARE-TAG-VM-10.82.11.10.yml') | from_yaml }}"
   extra_vars:
     task: tag_vm
+
 ################################### INVENTORIES ################################################
 controller_inventories:
   - name: VMWARE
