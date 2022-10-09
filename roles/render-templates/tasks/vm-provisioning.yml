@@ -84,6 +84,6 @@
 
 - name: Render Template
   template:
-    src: vm-provisioning.j2
-    dest: template_surveys/VMWARE-VM-PROVISION.yml
+    src: vmware-vm_provisioning.j2
+    dest: template_surveys/VMWARE-VM-PROVISION-{{ vcenter_hostname }}.yml
     force: true

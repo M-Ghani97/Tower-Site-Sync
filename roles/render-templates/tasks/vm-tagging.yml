@@ -9,6 +9,6 @@
 
 - name: Render Template
   template:
-    src: vm-tagging.j2
+    src: vmware-vm_tagging.j2
     dest: template_surveys/VMWARE-TAG-VM.yml
     force: true

@@ -1,2 +1,3 @@
 ---
-# vars file for render-templates
+vcenter_hosts:
+  - "10.82.11.10"

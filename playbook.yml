@@ -10,7 +10,7 @@
     - awx.awx
     - redhat_cop.controller_configuration
   vars:
-    vcenter_hostname: 10.82.11.10
+    # vcenter_hostname: 10.82.11.10
     vcenter_username: administrator@ivlab.cloud
     vcenter_password: letmein2iVolve@
 
