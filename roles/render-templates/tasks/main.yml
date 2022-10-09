@@ -1,4 +1,10 @@
 ---
+- name: Render Main variable files
+  template:
+    src: all.j2
+    dest: group_vars/all.yml
+    force: true
+    
 - include_tasks: "vm-provisioning.yml"
   vars:
     vcenter_hostname: "{{ vc_host }}"
