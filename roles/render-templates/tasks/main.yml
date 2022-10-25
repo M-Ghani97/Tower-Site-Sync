@@ -1,17 +1,19 @@
 ---
-- include_tasks: "vmware.yml"
+- name: Render VMware VM Provisioning Template
+  ansible.builtin.include_tasks: "vmware.yml"
   vars:
     vcenter_hostname: "{{ vcenter_host }}"
   loop: "{{ vcenter_hosts }}"
   loop_control:
     loop_var: vcenter_host
 
-# - include_tasks: "vmware-vm-tagging.yml"
-#   vars:
-#     vcenter_hostname: "{{ vcenter_host }}"
-#   loop: "{{ vcenter_hosts }}"
-#   loop_control:
-#     loop_var: vcenter_host
+- name: Redner VMWare VM Tagging Template
+  ansible.builtin.include_tasks: "vmware-vm-tagging.yml"
+  vars:
+    vcenter_hostname: "{{ vcenter_host }}"
+  loop: "{{ vcenter_hosts }}"
+  loop_control:
+    loop_var: vcenter_host
 
 # - include_tasks: "f5-add-pool-member.yml"
 #   vars:

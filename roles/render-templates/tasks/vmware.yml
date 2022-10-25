@@ -4,7 +4,7 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
+    validate_certs: false
   register: datacenters
 
 - name: Get list of Cluster
@@ -12,13 +12,13 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
+    validate_certs: false
     datacenter: "{{ item.name }}"
   register: clusters_names
   loop: "{{ datacenters.datacenter_info }}"
 
 - name: Reform Cluster names
-  set_fact:
+  ansible.builtin.set_fact:
     clusters: '{{ clusters | default([]) + item.clusters.keys() | list }}'
   loop: "{{ clusters_names.results }}"
 
@@ -27,7 +27,7 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
+    validate_certs: false
     vm_type: template
   register: vm_templates
 
@@ -36,18 +36,18 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
+    validate_certs: false
     datacenter: "{{ item.name }}"
   register: folder_names
   loop: "{{ datacenters.datacenter_info }}"
 
 - name: Reform Flat Folder Names
-  set_fact:
+  ansible.builtin.set_fact:
     folders: "{{ folders | default([]) + item.flat_folder_info }}"
   loop: "{{ folder_names.results }}"
 
 - name: Reform VM Folder Name
-  set_fact:
+  ansible.builtin.set_fact:
     vm_folders: "{{ vm_folders | default([]) + [item.path] }}"
   when: item.path is search("/vm/")
   loop: "{{ folders }}"
@@ -57,36 +57,38 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
+    validate_certs: false
     datacenter: "{{ item.name }}"
   register: datastore_names
   loop: "{{ datacenters.datacenter_info }}"
 
 - name: Reform Datastore Names
-  set_fact:
+  ansible.builtin.set_fact:
     datastores: "{{ datastores | default([]) + item.datastores }}"
   loop: "{{ datastore_names.results }}"
 
 - name: Reform All Datastore Names
-  set_fact:
+  ansible.builtin.set_fact:
     vm_datastores: "{{ vm_datastores | default([]) + [item.name] }}"
   loop: "{{ datastores }}"
 
 - name: Get list of Portgroups
   block:
-    - community.vmware.vmware_dvs_portgroup_info:
+    - name: Get list of Portgroups in Datacenter
+      community.vmware.vmware_dvs_portgroup_info:
         hostname: '{{ vcenter_hostname }}'
         username: '{{ vcenter_username }}'
         password: '{{ vcenter_password }}'
-        validate_certs: False
+        validate_certs: false
         datacenter: "{{ item.name }}"
       register: dvs_portgroup_names
       loop: "{{ datacenters.datacenter_info }}"
-    - community.vmware.vmware_portgroup_info:
+    - name: Get list of Portgroups in Cluster
+      community.vmware.vmware_portgroup_info:
         hostname: '{{ vcenter_hostname }}'
         username: '{{ vcenter_username }}'
         password: '{{ vcenter_password }}'
-        validate_certs: False
+        validate_certs: false
         cluster_name: "{{ item }}"
       register: portgroup_names
       loop: "{{ clusters }}"
@@ -96,13 +98,14 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-    validate_certs: False
-  register: tags  
+    validate_certs: false
+  register: tags
 
 - name: Render Templates
-  template:
-    src: "{{ template.src}}"
+  ansible.builtin.template:
+    src: "{{ template.src }}"
     dest: "{{ template.dest }}"
+    mode: 0600
     force: true
   loop:
     - {src: 'vmware-vm_tagging.j2', dest: 'template_surveys/VMWARE-TAG-VM-{{ vcenter_hostname }}.yml'}
