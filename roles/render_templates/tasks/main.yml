@@ -5,16 +5,8 @@
     vcenter_hostname: "{{ vcenter_host }}"
   loop: "{{ vcenter_hosts }}"
   loop_control:
-    loop_var: vcenter_host
-
-- name: Redner VMWare VM Tagging Template
-  ansible.builtin.include_tasks: "vmware-vm-tagging.yml"
-  vars:
-    vcenter_hostname: "{{ vcenter_host }}"
-  loop: "{{ vcenter_hosts }}"
-  loop_control:
-    loop_var: vcenter_host
-
+    loop_var: vcenter_hostname
+    
 # - include_tasks: "f5-add-pool-member.yml"
 #   vars:
 #     f5_device: "{{ f5_host }}"
