@@ -97,7 +97,7 @@
     mode: 0600
     force: true
   loop:
-    - {src: 'vmware-vm_tagging.j2', dest: 'template_surveys/VMWARE-TAG-VM-{{ vcenter_hostname }}.yml'}
-    - {src: 'vmware-vm_provisioning.j2', dest: 'template_surveys/VMWARE-VM-PROVISION-{{ vcenter_hostname }}.yml'}
+    - {src: 'vmware-vm_tagging.j2', dest: 'template_surveys/VMWARE_TAG_VM_{{ vcenter_hostname }}.yml'}
+    - {src: 'vmware-vm_provisioning.j2', dest: 'template_surveys/VMWARE_VM_PROVISION_{{ vcenter_hostname }}.yml'}
   loop_control:
     loop_var: template
