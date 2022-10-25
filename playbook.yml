@@ -14,7 +14,7 @@
   #   - creds.yml
   connection: local
   collections:
-    - awx.awx
+    - awx.awxf
     - community.vmware
     - redhat_cop.controller_configuration
 
