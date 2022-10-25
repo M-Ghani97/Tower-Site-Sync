@@ -29,7 +29,7 @@
     password: '{{ vcenter_password }}'
     validate_certs: False
     vm_type: template
-  register: templates
+  register: vm_templates
 
 - name: Get list of Folders
   community.vmware.vmware_folder_info:
@@ -91,8 +91,21 @@
       register: portgroup_names
       loop: "{{ clusters }}"
 
-- name: Render Template
+- name: Get list of Tags
+  community.vmware.vmware_tag_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: False
+  register: tags  
+
+- name: Render Templates
   template:
-    src: vmware-vm_provisioning.j2
-    dest: template_surveys/VMWARE-VM-PROVISION-{{ vcenter_hostname }}.yml
+    src: "{{ template.src}}"
+    dest: "{{ template.dest }}"
     force: true
+  loop:
+    - {src: 'vmware-vm_tagging.j2', dest: 'template_surveys/VMWARE-TAG-VM-{{ vcenter_hostname }}.yml'}
+    - {src: 'vmware-vm_provisioning.j2', dest: 'template_surveys/VMWARE-VM-PROVISION-{{ vcenter_hostname }}.yml'}
+  loop_control:
+    loop_var: template

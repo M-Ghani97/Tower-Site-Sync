@@ -1,0 +1,17 @@
+---
+# - name: Get List of LTM-Pools
+#   bigip_device_info:
+#     gather_subset: ltm-pools
+#     provider:
+#       server: "{{ f5_device }}"
+#       user: "{{ f5_user }}"
+#       password: "{{ f5_password }}"
+#       validate_certs: false
+#   register: pools
+#   delegate_to: localhost
+
+- name: Render Template
+  template:
+    src: f5-add-pool-member.j2
+    dest: template_surveys/F5-ADD-POOL-MEMBER-{{ f5_device }}.yml
+    force: true

@@ -1,14 +1,21 @@
 ---
-- include_tasks: "vm-provisioning.yml"
+- include_tasks: "vmware.yml"
   vars:
-    vcenter_hostname: "{{ vc_host }}"
+    vcenter_hostname: "{{ vcenter_host }}"
   loop: "{{ vcenter_hosts }}"
   loop_control:
-    loop_var: vc_host
+    loop_var: vcenter_host
 
-- include_tasks: "vm-tagging.yml"
-  vars:
-    vcenter_hostname: "{{ vc_host }}"
-  loop: "{{ vcenter_hosts }}"
-  loop_control:
-    loop_var: vc_host
+# - include_tasks: "vmware-vm-tagging.yml"
+#   vars:
+#     vcenter_hostname: "{{ vcenter_host }}"
+#   loop: "{{ vcenter_hosts }}"
+#   loop_control:
+#     loop_var: vcenter_host
+
+# - include_tasks: "f5-add-pool-member.yml"
+#   vars:
+#     f5_device: "{{ f5_host }}"
+#   loop: "{{ f5_hosts }}"
+#   loop_control:
+#     loop_var: f5_host

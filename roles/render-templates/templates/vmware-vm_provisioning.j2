@@ -48,8 +48,8 @@ spec:
     variable: template
     required: true
     choices:
-{% for template in templates.virtual_machines %}
-      - "{{ template.guest_name }}"
+{% for vm_template in vm_templates.virtual_machines %}
+      - "{{ vm_template.guest_name }}"
 {% endfor %}
 
   - type: multiplechoice

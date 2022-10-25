@@ -1,19 +1,17 @@
 ---
-name: F5-ADD-POOL-MEMBER-Survey
-description: F5-ADD-POOL-MEMBER-Survey
+name: F5-ADD-POOL-MEMBER-Survey [10.82.3.56]
+description: F5-ADD-POOL-MEMBER-Survey [10.82.3.56]
 spec:
-  - type: text
-    question_name: "F5 Device Hostname/IP"
-    question_description: "F5 Device Hostname/IP"
-    variable: target_hosts
-    required: true
   
-  - type: text
+  - type: multiplechoice
     question_name: "Pool Name"
     question_description: "Pool Name"
     variable: pool_name
     required: true
-  
+    choices:
+      - HA_Pool
+      - access-remote-syslog-pool
+
   - type: text
     question_name: "Member Name"
     question_description: "Member Name"
@@ -26,7 +24,7 @@ spec:
     variable: member_host
     required: true
   
-  - type: text
+  - type: integer
     question_name: "Memeber Port"
     question_description: "Memeber Port"
     variable: member_port
@@ -36,4 +34,4 @@ spec:
     question_name: "Description"
     question_description: "Description"
     variable: member_description
-    required: true
+    required: false
