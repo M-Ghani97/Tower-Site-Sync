@@ -1,6 +1,7 @@
 ---
 - name: Render Main variable files
-  template:
+  ansible.builtin.template:
     src: all.j2
     dest: group_vars/aap_vars.yml
+    mode: 0600
     force: true

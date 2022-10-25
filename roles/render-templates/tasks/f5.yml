@@ -11,7 +11,8 @@
 #   delegate_to: localhost
 
 - name: Render Template
-  template:
+  ansible.builtin.template:
     src: f5-add-pool-member.j2
     dest: template_surveys/F5-ADD-POOL-MEMBER-{{ f5_device }}.yml
+    mode: 0600
     force: true

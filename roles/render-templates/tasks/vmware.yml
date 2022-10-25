@@ -73,25 +73,14 @@
   loop: "{{ datastores }}"
 
 - name: Get list of Portgroups
-  block:
-    - name: Get list of Portgroups in Datacenter
-      community.vmware.vmware_dvs_portgroup_info:
-        hostname: '{{ vcenter_hostname }}'
-        username: '{{ vcenter_username }}'
-        password: '{{ vcenter_password }}'
-        validate_certs: false
-        datacenter: "{{ item.name }}"
-      register: dvs_portgroup_names
-      loop: "{{ datacenters.datacenter_info }}"
-    - name: Get list of Portgroups in Cluster
-      community.vmware.vmware_portgroup_info:
-        hostname: '{{ vcenter_hostname }}'
-        username: '{{ vcenter_username }}'
-        password: '{{ vcenter_password }}'
-        validate_certs: false
-        cluster_name: "{{ item }}"
-      register: portgroup_names
-      loop: "{{ clusters }}"
+  community.vmware.vmware_dvs_portgroup_info:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    validate_certs: false
+    datacenter: "{{ item.name }}"
+  register: dvs_portgroup_names
+  loop: "{{ datacenters.datacenter_info }}"
 
 - name: Get list of Tags
   community.vmware.vmware_tag_info:

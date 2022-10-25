@@ -11,9 +11,10 @@
 #   delegate_to: localhost
 
 - name: Render Templates
-  template:
-    src: "{{ template.src}}"
+  ansible.builtin.template:
+    src: "{{ template.src }}"
     dest: "{{ template.dest }}"
+    mode: 0600
     force: true
   loop:
     - {src: 'f5-add-pool-member.j2', dest: 'template_surveys/F5-ADD-POOL-MEMBER-{{ f5_device }}.yml'}
