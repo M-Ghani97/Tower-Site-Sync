@@ -4,7 +4,7 @@
   gather_facts: false
   connection: local
   roles:
-    - {role: render-variables, tags: always}
+    - {role: render_variables, tags: always}
 
 - name: Playbook to configure ansible Controller post installation
   hosts: localhost
@@ -19,7 +19,7 @@
     - redhat_cop.controller_configuration
 
   roles:
-    - {role: render-templates, tags: job_templates}
+    - {role: render_templates, tags: job_templates}
     # - {role: settings, when: controller_settings is defined, tags: settings}
     # - {role: organizations, when: controller_organizations is defined, tags: organizations}
     # - {role: labels, when: controller_labels is defined, tags: labels}
